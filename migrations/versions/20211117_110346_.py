@@ -23,6 +23,8 @@ def upgrade():
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.Column('profileImgUrl', sa.Text(), nullable=False),
+
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
@@ -41,14 +43,14 @@ def upgrade():
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=50), nullable=False),
     sa.Column('isPublic', sa.Boolean(), nullable=False),
-    sa.Column('deckImgUrl', sa.String(length=300), nullable=False),
+    sa.Column('deckImgUrl', sa.Text(), nullable=False),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('card_images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('cardId', sa.Integer(), nullable=False),
-    sa.Column('url', sa.String(length=300), nullable=False),
+    sa.Column('url', sa.Text(), nullable=False),
     sa.ForeignKeyConstraint(['cardId'], ['cards.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

@@ -13,7 +13,7 @@ class Card(db.Model):
 
 
     user = db.relationship("User", back_populates="cards")
-    card_images = db.relationship("Card_Image", back_populates="card_images")
+    card_images = db.relationship("Card_Image", back_populates="cards")
 
     decks = db.relationship(
         "Deck", 

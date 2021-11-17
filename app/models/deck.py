@@ -8,7 +8,7 @@ class Deck(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     title = db.Column(db.String(50), nullable=False)
     isPublic = db.Column(db.Boolean, nullable=False)
-    deckImgUrl = db.Column(db.String(300), nullable=False)
+    deckImgUrl = db.Column(db.Text(), nullable=False)
 
 
 
