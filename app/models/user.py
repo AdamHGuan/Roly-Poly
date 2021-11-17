@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    profileImgUrl = db.Column(db.Text, nullable=False)
 
     decks = db.relationship("Deck", back_populates="user")
     cards = db.relationship("Card", back_populates="user")
@@ -29,5 +30,6 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'profileImgUrl': self.profileImgUrl
         }
