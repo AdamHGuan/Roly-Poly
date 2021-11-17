@@ -1,9 +1,5 @@
 from .db import db
 
-deck_card = db.Table('deck_card',
-    db.Column('deckId', db.Integer, db.ForeignKey("decks.id"), primary_key=True),
-    db.Column('cardId', db.Integer, db.ForeignKey("cards.id"), primary_key=True)
-)
 
 class Deck(db.Model):
     __tablename__ = 'decks'
@@ -20,7 +16,7 @@ class Deck(db.Model):
 
     cards = db.relationship(
         "Card", 
-        secondary=deck_card, 
+        secondary="deck_card", 
         back_populates="decks"
     )
 
