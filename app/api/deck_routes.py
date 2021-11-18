@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from app.models import Deck, db
 from flask_login import login_required
 
-from app.forms import new_deck_form
+from app.forms import deck_form
 
 
 
