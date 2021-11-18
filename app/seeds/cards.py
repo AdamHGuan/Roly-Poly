@@ -1,7 +1,6 @@
 from app.models import db, Card
 
 
-# Adds a demo user, you can add other users here if you want
 def seed_cards():
     card_1 = Card(
         userId='1', frontContent='card_1_front', backContent='card_1_back', isPublic=True)
@@ -33,11 +32,7 @@ def seed_cards():
     db.session.commit()
 
 
-# Uses a raw SQL query to TRUNCATE the users table.
-# SQLAlchemy doesn't have a built in function to do this
-# TRUNCATE Removes all the data from the table, and RESET IDENTITY
-# resets the auto incrementing primary key, CASCADE deletes any
-# dependent entities
+
 def undo_cards():
     db.session.execute('TRUNCATE cards RESTART IDENTITY CASCADE;')
     db.session.commit()
