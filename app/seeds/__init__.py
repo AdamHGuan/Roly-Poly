@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .decks import seed_decks, undo_decks
 from .cards import seed_cards, undo_cards
 from .card_images import seed_card_images, undo_card_images
+from .decks_cards import seed_decks_cards, undo_decks_cards
 
 
 
@@ -18,6 +19,7 @@ def seed():
     seed_decks()
     seed_cards()
     seed_card_images()
+    seed_decks_cards()
     # Add other seed functions here
 
 
@@ -29,4 +31,5 @@ def undo():
     undo_decks()
     undo_cards()
     undo_card_images()
+    undo_decks_cards()
     # Add other undo functions here
