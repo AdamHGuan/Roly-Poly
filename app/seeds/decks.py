@@ -10,6 +10,7 @@ def seed_decks():
         userId='1', title='Python', isPublic=True, deckImgUrl='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png')
     deck_4 = Deck(
         userId='1', title='Test', isPublic=True, deckImgUrl='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png')
+ 
 
 
 
@@ -17,6 +18,7 @@ def seed_decks():
     db.session.add(deck_2)
     db.session.add(deck_3)
     db.session.add(deck_4)
+
 
 
     db.session.commit()

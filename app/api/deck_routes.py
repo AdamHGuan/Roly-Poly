@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from app.models import Deck, db
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from app.forms import deck_form
 
@@ -9,16 +9,16 @@ from app.forms import deck_form
 deck_routes = Blueprint('decks', __name__)
 
 
-@deck_routes.route('/user/<int:userId>/')
+@deck_routes.route('/')
 def user_decks():
     decks = Deck.query.all()
-    decks = Deck.query.filter(Deck.userId == userId).all()
+    decks = Deck.query.filter(Deck.userId == current_user.id).all()
     return {'decks': [deck.to_dict() for deck in decks]}
 
 
 
 
-@deck_routes.route('/user/<int:userId>/', methods=['POST'])
+@deck_routes.route('/', methods=['POST'])
 @login_required
 def create_deck():
 
@@ -45,7 +45,7 @@ def create_deck():
 
 @deck_routes.route('/<int:deckId>', methods=['PATCH'])
 @login_required
-def create_deck(deckId):
+def edit_deck(deckId):
 
   form = deck_form()
   form["csrf_token"].data = request.cookies["csrf_token"]
