@@ -30,11 +30,8 @@ def user_decks():
 @deck_routes.route('/', methods=['POST'])
 @login_required
 def create_deck():
-  print(111111111111)
   form = deck_form()
-  print(2222222222222)
   form["csrf_token"].data = request.cookies["csrf_token"]
-  print("-----------------", form)
 
   if form.validate_on_submit():
     print(33333333333333)
