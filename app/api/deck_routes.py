@@ -8,6 +8,15 @@ from app.forms import deck_form
 
 deck_routes = Blueprint('decks', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 @deck_routes.route('/')
 def user_decks():
@@ -21,25 +30,26 @@ def user_decks():
 @deck_routes.route('/', methods=['POST'])
 @login_required
 def create_deck():
-
+  print(111111111111)
   form = deck_form()
+  print(2222222222222)
   form["csrf_token"].data = request.cookies["csrf_token"]
+  print("-----------------", form)
 
   if form.validate_on_submit():
+    print(33333333333333)
     deck = Deck(
-        userId = request.json["userId"],
-        title=form.data['title'],
-        isPublic=form.data['isPublic'],
-        deckImgUrl=form.data['deckImgUrl'],
-        )
+      userId = request.json["userId"],
+      title=form.data['title'],
+      isPublic=form.data['isPublic'],
+      deckImgUrl=form.data['deckImgUrl'],        )
 
     db.session.add(deck)
     db.session.commit()
 
     return deck.to_dict()
 
-  else:
-    return form.errors
+  return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
     
 

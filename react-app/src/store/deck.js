@@ -27,16 +27,25 @@ export const loadDecks = () => async (dispatch) => {
 };
 
 export const addDeck = (deck) => async (dispatch) => {
+	console.log(111111111111);
 	const response = await fetch(`/api/decks/`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(deck),
 	});
-
+	console.log(2222222222222);
 	if (response.ok) {
 		const data = await response.json();
 		dispatch(createDeck(data));
+		console.log(3333333333333333);
 		return data;
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
 	}
 };
 

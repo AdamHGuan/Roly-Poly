@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 // import LoginForm from "../auth/LoginForm";
+import AddDeckFormModal from "../AddDeckFormModal";
 
 // import {  } from "../../store/";
 
@@ -18,28 +19,26 @@ function AllDecks() {
 				<h1>This is the All Decks page</h1>
 			</div>
 			<div>
-				<button title="Create Deck">Add Deck</button>
+				<AddDeckFormModal />
 			</div>
 			<div>
 				{decks &&
 					decks?.map((deck) => {
 						return (
-							<>
-								<div key={deck.id}>
-									<NavLink to={`/decks/${deck.id}`}>
+							<div key={deck.id}>
+								<NavLink to={`/decks/${deck.id}`}>
+									<div>
+										<p>{deck?.title}</p>
 										<div>
-											<p>{deck?.title}</p>
-											<div>
-												<img
-													src={deck?.deckImgUrl}
-													alt="deck?.title"
-													className="deck-img"
-												/>
-											</div>
+											<img
+												src={deck?.deckImgUrl}
+												alt="deck?.title"
+												className="deck-img"
+											/>
 										</div>
-									</NavLink>
-								</div>
-							</>
+									</div>
+								</NavLink>
+							</div>
 						);
 					})}
 			</div>
