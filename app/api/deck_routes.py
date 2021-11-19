@@ -34,7 +34,6 @@ def create_deck():
   form["csrf_token"].data = request.cookies["csrf_token"]
 
   if form.validate_on_submit():
-    print(33333333333333)
     deck = Deck(
       userId = request.json["userId"],
       title=form.data['title'],
@@ -67,8 +66,8 @@ def edit_deck(deckId):
 
     return deck.to_dict()
 
-  else:
-    return form.errors
+  return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 
 

@@ -26,6 +26,15 @@ export const loadDecks = () => async (dispatch) => {
 	}
 };
 
+export const loadCurrentDeck = () => async (dispatch) => {
+	const response = await fetch(`/api/decks/`);
+
+	if (response.ok) {
+		const data = await response.json();
+		dispatch(getDecks(data));
+	}
+};
+
 export const addDeck = (deck) => async (dispatch) => {
 	const response = await fetch(`/api/decks/`, {
 		method: "POST",

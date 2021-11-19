@@ -1,17 +1,21 @@
-// import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-// import LoginForm from "../auth/LoginForm";
-import AddDeckFormModal from "../AddDeckFormModal";
+import { loadDecks } from "../../store/deck";
 
-// import {  } from "../../store/";
+import AddDeckFormModal from "../AddDeckFormModal";
 
 import "./AllDecks.css";
 
 function AllDecks() {
-	// const { user } = useSelector((state) => state.session);
+	const dispatch = useDispatch();
 	const decks = useSelector((state) => state.deck?.decks);
+	useEffect(() => {
+		(async () => {
+			await dispatch(loadDecks());
+		})();
+	}, [dispatch]);
 
 	return (
 		<>
@@ -32,7 +36,7 @@ function AllDecks() {
 										<div>
 											<img
 												src={deck?.deckImgUrl}
-												alt="deck?.title"
+												alt="Deck Cover"
 												className="deck-img"
 											/>
 										</div>

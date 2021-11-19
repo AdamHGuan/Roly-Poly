@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 
 // import LoginForm from "../auth/LoginForm";
+import EditDeckFormModal from "../EditDeckFormModal";
+import DeleteDeckFormModal from "../DeleteDeckFormModal";
 
 // import {  } from "../../store/";
 
@@ -29,10 +31,10 @@ function DeckDetail() {
 				<img src={deck?.deckImgUrl} alt="deck?.title" className="deck-img" />
 			</div>
 			<div>
-				<button title="Edit Deck">Edit Deck</button>
+				<EditDeckFormModal deck={deck} />
 			</div>
 			<div>
-				<button title="Delete Deck">Delete Deck</button>
+				<DeleteDeckFormModal deck={deck} />
 			</div>
 		</>
 	);

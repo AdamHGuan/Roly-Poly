@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { addDeck } from "../../store/deck";
-import "./AddDeckForm.css";
+import { useDispatch } from "react-redux";
+import { editDeck } from "../../store/deck";
+import "./EditDeckForm.css";
 
-function AddDeckForm({ onClose, isModal }) {
+function EditDeckForm({ deck, onClose, isModal }) {
 	const dispatch = useDispatch();
-	const { user } = useSelector((state) => state.session);
-	const userId = user?.id;
 
-	const [title, setTitle] = useState("");
-	const [isPublic, setIsPublic] = useState(false);
-	const [deckImgUrl, setDeckImgUrl] = useState("");
+	const id = deck?.id;
+
+	const [title, setTitle] = useState(deck?.title);
+	const [isPublic, setIsPublic] = useState(deck?.isPublic);
+	const [deckImgUrl, setDeckImgUrl] = useState(deck?.deckImgUrl);
 
 	const [errors, setErrors] = useState([]);
 
@@ -18,14 +18,13 @@ function AddDeckForm({ onClose, isModal }) {
 		e.preventDefault();
 
 		const data = {
-			userId,
+			id,
 			title,
 			isPublic,
 			deckImgUrl,
 		};
 
-		console.log(data);
-		await dispatch(addDeck(data));
+		await dispatch(editDeck(data));
 
 		if (data.errors) {
 			setErrors(data.errors);
@@ -45,7 +44,7 @@ function AddDeckForm({ onClose, isModal }) {
 			<div>
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Add a deck</p>
+						<p>Deck Edit</p>
 					</div>
 					<div>
 						{errors.length > 0 &&
@@ -96,4 +95,4 @@ function AddDeckForm({ onClose, isModal }) {
 	);
 }
 
-export default AddDeckForm;
+export default EditDeckForm;
