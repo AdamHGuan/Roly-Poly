@@ -1,6 +1,6 @@
 // import React, { useEffect } from "react";
 // import { useDispatch } from "react-redux";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // import LoginForm from "../auth/LoginForm";
 
@@ -16,9 +16,16 @@ function Home() {
 	// }, [dispatch]);
 
 	return (
-		<div>
-			<h1>This is the home page</h1>
-		</div>
+		<>
+			<div>
+				<h1>This is the home page</h1>
+			</div>
+			<div>
+				<NavLink to={`/decks`}>
+					<div>To all Decks</div>
+				</NavLink>
+			</div>
+		</>
 	);
 }
 

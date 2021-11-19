@@ -10,6 +10,7 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 
 import Home from "./components/Home";
+import AllDecks from "./components/AllDecks";
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
@@ -30,9 +31,6 @@ function App() {
 		<BrowserRouter>
 			<NavBar />
 			<Switch>
-				<Route path="/" exact={true}>
-					<Home />
-				</Route>
 				<Route path="/login" exact={true}>
 					<LoginForm />
 				</Route>
@@ -45,9 +43,15 @@ function App() {
 				<ProtectedRoute path="/users/:userId" exact={true}>
 					<User />
 				</ProtectedRoute>
-				<ProtectedRoute path="/" exact={true}>
-					<h1>My Home Page</h1>
+				<ProtectedRoute path="/decks" exact={true}>
+					<AllDecks />
 				</ProtectedRoute>
+				<ProtectedRoute path="/" exact={true}>
+					<Home />
+				</ProtectedRoute>
+				<Route>
+					<div>Page not found</div>
+				</Route>
 			</Switch>
 		</BrowserRouter>
 	);
