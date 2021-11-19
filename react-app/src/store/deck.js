@@ -55,7 +55,7 @@ export const editDeck = (deck) => async (dispatch) => {
 };
 
 export const deleteSpot = (deck) => async (dispatch) => {
-	const response = await fetch(`/api/decks/${deck.id}`, {
+	await fetch(`/api/decks/${deck.id}`, {
 		method: "DELETE",
 	});
 
@@ -66,14 +66,12 @@ const deckReducer = (state = {}, action) => {
 	let newState = { ...state };
 
 	switch (action.type) {
-		case LOAD:
+		case GET_DECKS:
 			newState = { ...action.data };
 			return newState;
-		case CREATE:
+		case CREATE_DECK:
 			return (newState[action.data.id] = action.data);
-		case UPDATE:
-			return (newState[action.data.id] = action.data);
-		case DELETE:
+		case DELETE_DECK:
 			delete newState[action.data.id];
 			return newState;
 		default:
