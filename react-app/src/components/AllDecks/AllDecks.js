@@ -1,6 +1,6 @@
 // import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // import LoginForm from "../auth/LoginForm";
 
@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 import "./AllDecks.css";
 
-function Home() {
+function AllDecks() {
 	// const { user } = useSelector((state) => state.session);
 	const decks = useSelector((state) => state.deck?.decks);
 
@@ -18,17 +18,26 @@ function Home() {
 				<h1>This is the All Decks page</h1>
 			</div>
 			<div>
+				<button title="Create Deck">Add Deck</button>
+			</div>
+			<div>
 				{decks &&
 					decks?.map((deck) => {
 						return (
 							<>
-								<p>{deck?.title}</p>
-								<div>
-									<img
-										src={deck?.deckImgUrl}
-										alt="deck?.title"
-										className="deck-img"
-									/>
+								<div key={deck.id}>
+									<NavLink to={`/decks/${deck.id}`}>
+										<div>
+											<p>{deck?.title}</p>
+											<div>
+												<img
+													src={deck?.deckImgUrl}
+													alt="deck?.title"
+													className="deck-img"
+												/>
+											</div>
+										</div>
+									</NavLink>
 								</div>
 							</>
 						);
@@ -38,4 +47,4 @@ function Home() {
 	);
 }
 
-export default Home;
+export default AllDecks;

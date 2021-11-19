@@ -11,6 +11,7 @@ import { authenticate } from "./store/session";
 
 import Home from "./components/Home";
 import AllDecks from "./components/AllDecks";
+import DeckDetail from "./components/DeckDetail";
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,9 @@ function App() {
 				<ProtectedRoute path="/users/:userId" exact={true}>
 					<User />
 				</ProtectedRoute>
+				<Route path="/decks/:deckId" exact={true}>
+					<DeckDetail />
+				</Route>
 				<ProtectedRoute path="/decks" exact={true}>
 					<AllDecks />
 				</ProtectedRoute>
