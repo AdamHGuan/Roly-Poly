@@ -23,9 +23,13 @@ function Home() {
 						return (
 							<>
 								<p>{deck?.title}</p>
-								{/* <div>
-									<img src={deck?.deckImgUrl} alt="deck?.title" />
-								</div> */}
+								<div>
+									<img
+										src={deck?.deckImgUrl}
+										alt="deck?.title"
+										className="deck-img"
+									/>
+								</div>
 							</>
 						);
 					})}
