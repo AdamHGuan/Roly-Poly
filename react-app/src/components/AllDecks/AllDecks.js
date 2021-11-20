@@ -10,11 +10,11 @@ import "./AllDecks.css";
 
 function AllDecks() {
 	const dispatch = useDispatch();
+
 	const decks = useSelector((state) => state.deck?.decks);
+
 	useEffect(() => {
-		(async () => {
-			await dispatch(loadDecks());
-		})();
+		dispatch(loadDecks());
 	}, [dispatch]);
 
 	return (

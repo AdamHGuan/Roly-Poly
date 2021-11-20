@@ -25,8 +25,6 @@ def user_decks():
     return {'decks': [deck.to_dict() for deck in decks]}
 
 
-
-
 @deck_routes.route('/', methods=['POST'])
 @login_required
 def create_deck():

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addDeck } from "../../store/deck";
+import { addDeck, loadDecks } from "../../store/deck";
 import "./AddDeckForm.css";
 
 function AddDeckForm({ onClose, isModal }) {
@@ -24,8 +24,8 @@ function AddDeckForm({ onClose, isModal }) {
 			deckImgUrl,
 		};
 
-		console.log(data);
 		await dispatch(addDeck(data));
+		await dispatch(loadDecks());
 
 		if (data.errors) {
 			setErrors(data.errors);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editDeck } from "../../store/deck";
+import { editDeck, loadDecks } from "../../store/deck";
 import "./EditDeckForm.css";
 
 function EditDeckForm({ deck, onClose, isModal }) {
@@ -11,8 +11,6 @@ function EditDeckForm({ deck, onClose, isModal }) {
 	const [title, setTitle] = useState(deck?.title);
 	const [isPublic, setIsPublic] = useState(deck?.isPublic);
 	const [deckImgUrl, setDeckImgUrl] = useState(deck?.deckImgUrl);
-
-	const [errors, setErrors] = useState([]);
 
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
@@ -25,14 +23,11 @@ function EditDeckForm({ deck, onClose, isModal }) {
 		};
 
 		await dispatch(editDeck(data));
+		await dispatch(loadDecks());
 
-		if (data.errors) {
-			setErrors(data.errors);
-		}
-
-		if (isModal) {
-			onClose();
-		}
+		// if (isModal) {
+		// 	onClose();
+		// }
 	};
 
 	const handleCancelClick = (e) => {
@@ -46,12 +41,7 @@ function EditDeckForm({ deck, onClose, isModal }) {
 					<div>
 						<p>Deck Edit</p>
 					</div>
-					<div>
-						{errors.length > 0 &&
-							errors.map((error) => (
-								<p className="login-err">{error.split(":")[1]}</p>
-							))}
-					</div>
+
 					<div>
 						<label>Deck title</label>
 						<input

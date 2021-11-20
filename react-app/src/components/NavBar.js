@@ -1,9 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import LogoutButton from "./auth/LogoutButton";
-
 import { loadDecks } from "../store/deck";
 
 const NavBar = () => {
