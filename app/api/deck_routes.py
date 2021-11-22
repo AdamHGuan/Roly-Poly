@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Deck, db
+from app.models import Deck, Card, db
 from flask_login import login_required, current_user
 
 from app.forms import deck_form
@@ -25,6 +25,7 @@ def user_decks():
     return {'decks': [deck.to_dict() for deck in decks]}
 
 
+
 @deck_routes.route('/', methods=['POST'])
 @login_required
 def create_deck():
@@ -45,7 +46,7 @@ def create_deck():
 
   return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-    
+
 
 @deck_routes.route('/<int:deckId>', methods=['PATCH'])
 @login_required
@@ -68,7 +69,6 @@ def edit_deck(deckId):
 
 
 
-
 @deck_routes.route('/<int:deckId>', methods=['DELETE'])
 def delete_Deck(deckId):
 
@@ -81,3 +81,39 @@ def delete_Deck(deckId):
 
 
 
+# =================================== Deck_Card Routes ========================================
+
+
+@deck_routes.route('/<int:deckId>')
+def user_deck_cards(deckId):
+    deck = Deck.query.get(deckId)
+    deck_cards = deck.cards
+    return {'deck_cards': [deck_card.to_dict() for deck_card in deck_cards]}
+
+
+
+@deck_routes.route('/<int:deckId>/cards/', methods=['POST'])
+def add_card_to_deck(deckId):
+    deck = Deck.query.get(deckId)
+    id = request.json['cardId']
+    card = Card.query.get(id)
+
+    deck.cards.append(card)
+    db.session.add(deck)
+    db.session.commit()
+
+    return card.to_dict()
+
+
+
+@deck_routes.route('/<int:deckId>/cards/', methods=['DELETE'])
+def delete_card_from_deck(deckId):
+    deck = Deck.query.get(deckId)
+    cardId = request.json
+    card = Card.query.get(cardId)
+
+    deck.cards.remove(card)
+    db.session.add(deck)
+    db.session.commit()
+
+    return (f"Card {id} is removed from {deck.title}")

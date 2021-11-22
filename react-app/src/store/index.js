@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import session from "./session";
 import deck from "./deck";
 import card from "./card";
+import deck_card from "./deck_card";
 
 const rootReducer = combineReducers({
 	session,
 	deck,
 	card,
+	deck_card,
 });
 
 let enhancer;
