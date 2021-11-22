@@ -69,7 +69,7 @@ export const editDeck = (deck) => async (dispatch) => {
 	}
 };
 
-export const deleteSpot = (deck) => async (dispatch) => {
+export const removeDeck = (deck) => async (dispatch) => {
 	await fetch(`/api/decks/${deck.id}`, {
 		method: "DELETE",
 	});

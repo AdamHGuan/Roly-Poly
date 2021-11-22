@@ -12,6 +12,8 @@ import { authenticate } from "./store/session";
 import Home from "./components/Home";
 import AllDecks from "./components/AllDecks";
 import DeckDetail from "./components/DeckDetail";
+import AllCards from "./components/AllCards";
+import CardDetail from "./components/CardDetail";
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
@@ -49,6 +51,12 @@ function App() {
 				</Route>
 				<ProtectedRoute path="/decks" exact={true}>
 					<AllDecks />
+				</ProtectedRoute>
+				<Route path="/cards/:cardId" exact={true}>
+					<CardDetail />
+				</Route>
+				<ProtectedRoute path="/cards" exact={true}>
+					<AllCards />
 				</ProtectedRoute>
 				<ProtectedRoute path="/" exact={true}>
 					<Home />

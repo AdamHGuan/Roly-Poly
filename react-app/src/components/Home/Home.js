@@ -14,6 +14,11 @@ function Home() {
 					<div>To all Decks</div>
 				</NavLink>
 			</div>
+			<div>
+				<NavLink to={`/cards`}>
+					<div>To all Cards</div>
+				</NavLink>
+			</div>
 		</>
 	);
 }

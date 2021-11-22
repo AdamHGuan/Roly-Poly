@@ -4,12 +4,14 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LogoutButton from "./auth/LogoutButton";
 import { loadDecks } from "../store/deck";
+import { loadCards } from "../store/card";
 
 const NavBar = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(loadDecks());
+		dispatch(loadCards());
 	}, [dispatch]);
 
 	return (

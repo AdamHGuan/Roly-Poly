@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 
 import { loadDecks } from "../../store/deck";
@@ -29,6 +29,11 @@ function DeckDetail() {
 		return (
 			<>
 				<div>
+					<NavLink to={`/decks`}>
+						<div>To all Decks</div>
+					</NavLink>
+				</div>
+				<div>
 					<h1>This is the Deck Detail page</h1>
 				</div>
 				<div>
@@ -47,7 +52,16 @@ function DeckDetail() {
 		);
 	}
 
-	return <p>Invalid Deck ID</p>;
+	return (
+		<>
+			<p>Invalid Deck ID</p>
+			<div>
+				<NavLink to={`/decks`}>
+					<div>To all Decks</div>
+				</NavLink>
+			</div>
+		</>
+	);
 }
 
 export default DeckDetail;
