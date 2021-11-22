@@ -70,7 +70,7 @@ export const editCard = (card) => async (dispatch) => {
 };
 
 export const removeCard = (card) => async (dispatch) => {
-	await fetch(`/api/decks/${card.id}`, {
+	await fetch(`/api/cards/${card.id}`, {
 		method: "DELETE",
 	});
 

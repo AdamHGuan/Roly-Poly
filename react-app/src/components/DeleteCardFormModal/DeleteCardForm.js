@@ -1,14 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { removeDeck, loadDecks } from "../../store/deck";
-import "./DeleteDeckForm.css";
+import { removeCard, loadCards } from "../../store/card";
+import "./DeleteCardForm.css";
 
-function DeleteDeckForm({ deck, onClose, isModal }) {
+function DeleteCardForm({ card, onClose, isModal }) {
 	const dispatch = useDispatch();
 	const history = useHistory();
 
-	const id = deck?.id;
+	const id = card?.id;
 
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
@@ -17,12 +17,12 @@ function DeleteDeckForm({ deck, onClose, isModal }) {
 			id,
 		};
 
-		dispatch(removeDeck(data));
-		dispatch(loadDecks());
+		dispatch(removeCard(data));
+		dispatch(loadCards());
 
 		(() => {
 			setTimeout(() => {
-				history.push("/decks");
+				history.push("/cards");
 			}, 300);
 		})();
 
@@ -40,7 +40,7 @@ function DeleteDeckForm({ deck, onClose, isModal }) {
 			<div>
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Remove this deck?</p>
+						<p>Remove this card?</p>
 					</div>
 
 					<div>
@@ -57,4 +57,4 @@ function DeleteDeckForm({ deck, onClose, isModal }) {
 	);
 }
 
-export default DeleteDeckForm;
+export default DeleteCardForm;
