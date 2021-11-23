@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
@@ -14,6 +14,7 @@ import AllDecks from "./components/AllDecks";
 import DeckDetail from "./components/DeckDetail";
 import AllCards from "./components/AllCards";
 import CardDetail from "./components/CardDetail";
+import About from "./components/About/About";
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
@@ -61,6 +62,9 @@ function App() {
 				<ProtectedRoute path="/" exact={true}>
 					<Home />
 				</ProtectedRoute>
+				<Route path="/about" exact={true}>
+					<About />
+				</Route>
 				<Route>
 					<div>Page not found</div>
 				</Route>
