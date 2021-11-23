@@ -1,5 +1,22 @@
-.card-img {
+.card-container-outer {
+	display: flex;
+	flex-direction: column;
+	/* margin-top: 11vh; */
+	height: 89vh;
+	width: 100vw;
+}
+
+.card-container-main {
+	display: flex;
+	flex-direction: row;
+	/* margin-top: 11vh; */
+	height: 100%;
+	width: 100%;
+}
+
+.single-card-container {
+	margin: 1%;
 	width: 100px;
 	height: 100px;
-	background-color: black;
+	border: 1px solid black;
 }
