@@ -47,13 +47,15 @@ export const addDeckCard = (deckId, cardId) => async (dispatch) => {
 	}
 };
 
-export const removeDeck = (deckId, cardId) => async (dispatch) => {
+export const removeDeckCard = (deckId, cardId) => async (dispatch) => {
 	await fetch(`/api/decks/${deckId}/cards/`, {
 		method: "DELETE",
+		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ cardId }),
 	});
 
 	dispatch(deleteDeckCard(cardId));
+	return;
 };
 
 const deckCardReducer = (state = {}, action) => {

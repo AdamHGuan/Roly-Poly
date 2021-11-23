@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 
 import { loadDecks } from "../../store/deck";
+import { loadDeckCards } from "../../store/deck_card";
+
 import EditDeckFormModal from "../EditDeckFormModal";
 import DeleteDeckFormModal from "../DeleteDeckFormModal";
 
@@ -20,10 +22,12 @@ function DeckDetail() {
 	const deck = useSelector((state) =>
 		state.deck?.decks?.find((ele) => ele.id === +deckId)
 	);
+	const deckCards = useSelector((state) => state.deck_card?.deck_cards);
 
 	useEffect(() => {
 		dispatch(loadDecks());
-	}, [dispatch]);
+		dispatch(loadDeckCards(deckId));
+	}, [dispatch, deckId]);
 
 	if (deck) {
 		return (
@@ -47,6 +51,23 @@ function DeckDetail() {
 				</div>
 				<div>
 					<DeleteDeckFormModal deck={deck} />
+				</div>
+
+				<div>
+					{deckCards?.map((card) => {
+						return (
+							<div key={card?.id} className="deck-card-outer">
+								<NavLink to={`/cards/${card?.id}`} card={card}>
+									<div>
+										<p>{card?.frontContent}</p>
+									</div>
+									<div>
+										<p>{card?.backContent}</p>
+									</div>
+								</NavLink>
+							</div>
+						);
+					})}
 				</div>
 			</>
 		);

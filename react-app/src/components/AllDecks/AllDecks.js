@@ -11,7 +11,9 @@ import "./AllDecks.css";
 function AllDecks() {
 	const dispatch = useDispatch();
 
-	const decks = useSelector((state) => state.deck?.decks);
+	const decks = useSelector((state) =>
+		state.deck?.decks?.sort((a, b) => a.id - b.id)
+	);
 
 	useEffect(() => {
 		dispatch(loadDecks());

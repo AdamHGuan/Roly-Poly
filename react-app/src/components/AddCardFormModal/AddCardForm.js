@@ -24,14 +24,15 @@ function AddCardForm({ onClose, isModal }) {
 			isPublic,
 		};
 
-		await dispatch(addCard(data));
+		let res = await dispatch(addCard(data));
 		await dispatch(loadCards());
 
-		if (data.errors) {
-			setErrors(data.errors);
+		if (res.errors) {
+			setErrors(res.errors);
+			return;
 		}
-
-		if (isModal) {
+		// console.log(res);
+		if (res) {
 			onClose();
 		}
 	};
@@ -58,7 +59,7 @@ function AddCardForm({ onClose, isModal }) {
 						<input
 							type="text"
 							placeholder="front content"
-							required
+							// required
 							value={frontContent}
 							onChange={(e) => setFrontContent(e.target.value)}
 						/>
@@ -68,7 +69,7 @@ function AddCardForm({ onClose, isModal }) {
 						<input
 							type="text"
 							placeholder="back content"
-							required
+							// required
 							value={backContent}
 							onChange={(e) => setBackContent(e.target.value)}
 						/>

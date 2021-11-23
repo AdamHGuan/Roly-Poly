@@ -109,8 +109,8 @@ def add_card_to_deck(deckId):
 @deck_routes.route('/<int:deckId>/cards/', methods=['DELETE'])
 def delete_card_from_deck(deckId):
     deck = Deck.query.get(deckId)
-    cardId = request.json
-    card = Card.query.get(cardId)
+    id = request.json['cardId']
+    card = Card.query.get(id)
 
     deck.cards.remove(card)
     db.session.add(deck)
