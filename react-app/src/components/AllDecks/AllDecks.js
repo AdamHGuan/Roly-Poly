@@ -19,32 +19,34 @@ function AllDecks() {
 
 	return (
 		<>
-			<div>
-				<h1>This is the All Decks page</h1>
-			</div>
-			<div>
-				<AddDeckFormModal />
-			</div>
-			<div>
-				{decks &&
-					decks?.map((deck) => {
-						return (
-							<div key={deck.id}>
-								<NavLink to={`/decks/${deck.id}`}>
-									<div>
-										<p>{deck?.title}</p>
+			<div className="deck-container-outer">
+				<div>
+					<h1>This is the All Decks page</h1>
+				</div>
+				<div>
+					<AddDeckFormModal />
+				</div>
+				<div className="deck-container-main">
+					{decks &&
+						decks?.map((deck) => {
+							return (
+								<div key={deck.id} className="single-deck-container">
+									<NavLink to={`/decks/${deck.id}`}>
 										<div>
-											<img
-												src={deck?.deckImgUrl}
-												alt="Deck Cover"
-												className="deck-img"
-											/>
+											<div>
+												<img
+													src={deck?.deckImgUrl}
+													alt="Deck Cover"
+													className="deck-img"
+												/>
+												<p>{deck?.title}</p>
+											</div>
 										</div>
-									</div>
-								</NavLink>
-							</div>
-						);
-					})}
+									</NavLink>
+								</div>
+							);
+						})}
+				</div>
 			</div>
 		</>
 	);

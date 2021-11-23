@@ -19,28 +19,30 @@ function AllCards() {
 
 	return (
 		<>
-			<div>
-				<h1>This is the All Cards page</h1>
-			</div>
-			<div>
-				<AddCardFormModal />
-			</div>
-			<div>
-				{cards &&
-					cards?.map((card) => {
-						return (
-							<div key={card.id}>
-								<NavLink to={`/cards/${card.id}`}>
-									<div>
-										<p>{card?.frontContent}</p>
-									</div>
-									<div>
-										<p>{card?.backContent}</p>
-									</div>
-								</NavLink>
-							</div>
-						);
-					})}
+			<div className="card-container-outer">
+				<div>
+					<h1>This is the All Cards page</h1>
+				</div>
+				<div>
+					<AddCardFormModal />
+				</div>
+				<div className="card-container-main">
+					{cards &&
+						cards?.map((card) => {
+							return (
+								<div key={card.id} className="single-card-container">
+									<NavLink to={`/cards/${card.id}`}>
+										<div>
+											<p>{card?.frontContent}</p>
+										</div>
+										<div>
+											<p>{card?.backContent}</p>
+										</div>
+									</NavLink>
+								</div>
+							);
+						})}
+				</div>
 			</div>
 		</>
 	);

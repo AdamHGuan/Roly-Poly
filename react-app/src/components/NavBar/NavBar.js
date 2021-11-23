@@ -54,11 +54,11 @@ const NavBar = () => {
 						</div>
 					</NavLink>
 				</li>
-				<div>
+				{/* <div>
 					<NavLink className="inactive" to="/" exact={true}>
 						<h1 className="nav-bar-title">Roly-Poly</h1>
 					</NavLink>
-				</div>
+				</div> */}
 				<div className="nav-bar-right">
 					<li className="nav-login-signup">
 						<div
