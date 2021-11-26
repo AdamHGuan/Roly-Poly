@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./FlipCard.css";
 
-export default function FlipCard({ card }) {
+function FlipCard({ card }) {
 	const [flip, setFlip] = useState(false);
+	const history = useHistory();
 
 	// const fit = (info) => {
 	// 	return info.slice(0, 35);
@@ -12,6 +14,7 @@ export default function FlipCard({ card }) {
 	return (
 		<div
 			className={`card-content ${flip ? "front" : ""}`}
+			onDoubleClick={() => history.push(`/cards/${card.id}`)}
 			onClick={() => setFlip(!flip)}
 		>
 			<div key={card?.id} className="card-front-content">
@@ -23,3 +26,5 @@ export default function FlipCard({ card }) {
 		</div>
 	);
 }
+
+export default FlipCard;
