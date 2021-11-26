@@ -1,0 +1,30 @@
+.card-detail-container-outer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 89vh;
+	width: 100vw;
+}
+
+.detail-card-h1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.detail-card-btn-container {
+	display: flex;
+	flex-direction: row;
+	gap: 3em;
+}
+
+.card-info-container {
+	margin-top: 3em;
+	height: 35%;
+	width: 70%;
+	border: 1px solid black;
+	word-break: break-all;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3em 3em 3em 3em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

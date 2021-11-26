@@ -28,25 +28,26 @@ function CardDetail() {
 	if (card) {
 		return (
 			<>
-				<div>
-					<NavLink to={`/cards`}>
-						<div>To all Cards</div>
-					</NavLink>
-				</div>
-				<div>
-					<h1>This is the Card Detail page</h1>
-				</div>
-				<div>
-					<p>{card?.frontContent}</p>
-				</div>
-				<div>
-					<p>{card?.backContent}</p>
-				</div>
-				<div>
-					<EditCardFormModal card={card} />
-				</div>
-				<div>
-					<DeleteCardFormModal card={card} />
+				<div className="card-detail-container-outer">
+					<div>
+						<NavLink to={`/cards`}>
+							<div>To all Cards</div>
+						</NavLink>
+					</div>
+					<div>
+						<h1 className="detail-card-h1">This is the Card Detail page</h1>
+					</div>
+					<div className="detail-card-btn-container">
+						<div>
+							<EditCardFormModal card={card} />
+						</div>
+						<div>
+							<DeleteCardFormModal card={card} />
+						</div>
+					</div>
+
+					<div className="card-info-container">{card?.frontContent}</div>
+					<div className="card-info-container">{card?.backContent}</div>
 				</div>
 			</>
 		);

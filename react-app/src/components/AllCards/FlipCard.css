@@ -23,4 +23,5 @@
 .card-back-content {
 	position: absolute;
 	backface-visibility: hidden;
+	padding: 1em 1em 1em 1em;
 }

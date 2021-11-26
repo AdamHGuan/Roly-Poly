@@ -5,6 +5,10 @@ import "./FlipCard.css";
 export default function FlipCard({ card }) {
 	const [flip, setFlip] = useState(false);
 
+	// const fit = (info) => {
+	// 	return info.slice(0, 35);
+	// };
+
 	return (
 		<div
 			className={`card-content ${flip ? "front" : ""}`}
