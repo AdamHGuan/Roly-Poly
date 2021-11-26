@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 import { loadCards } from "../../store/card";
 
 import AddCardFormModal from "../AddCardFormModal";
+import FlipCard from "./FlipCard";
 
 import "./AllCards.css";
 
@@ -18,33 +19,20 @@ function AllCards() {
 	}, [dispatch]);
 
 	return (
-		<>
-			<div className="card-container-outer">
-				<div>
-					<h1>This is the All Cards page</h1>
-				</div>
-				<div>
-					<AddCardFormModal />
-				</div>
-				<div className="card-container-main">
-					{cards &&
-						cards?.map((card) => {
-							return (
-								<div key={card.id} className="single-card-container">
-									<NavLink to={`/cards/${card.id}`}>
-										<div>
-											<p>{card?.frontContent}</p>
-										</div>
-										<div>
-											<p>{card?.backContent}</p>
-										</div>
-									</NavLink>
-								</div>
-							);
-						})}
-				</div>
+		<div className="card-container-outer">
+			<div>
+				<h1 className="all-card-h1">All Cards</h1>
 			</div>
-		</>
+			<div>
+				<AddCardFormModal />
+			</div>
+
+			<div className="card-container-main">
+				{cards?.map((card) => {
+					return <FlipCard card={card} key={card.id} />;
+				})}
+			</div>
+		</div>
 	);
 }
 

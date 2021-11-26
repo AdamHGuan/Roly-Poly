@@ -1,22 +1,24 @@
 .card-container-outer {
 	display: flex;
 	flex-direction: column;
-	/* margin-top: 11vh; */
+	align-items: center;
 	height: 89vh;
 	width: 100vw;
 }
 
 .card-container-main {
 	display: flex;
+	size: 2.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
 	flex-direction: row;
-	/* margin-top: 11vh; */
+	flex-wrap: wrap;
 	height: 100%;
 	width: 100%;
+	margin-top: 3rem;
+	margin-left: 3rem;
 }
 
-.single-card-container {
-	margin: 1%;
-	width: 100px;
-	height: 100px;
-	border: 1px solid black;
+.all-card-h1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
