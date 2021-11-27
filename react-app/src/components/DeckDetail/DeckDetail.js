@@ -36,7 +36,7 @@ function DeckDetail() {
 				<div>
 					<h1 className="detail-deck-h1"> {deck?.title}</h1>
 				</div>
-				<div className="detail-card-btn-container">
+				<div className="detail-deck-btn-container">
 					<div>
 						<EditDeckFormModal deck={deck} />
 					</div>
