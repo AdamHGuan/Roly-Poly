@@ -1,0 +1,9 @@
+.detail-deck-h1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.detail-deck-btn-container {
+	display: flex;
+	flex-direction: row;
+	gap: 3em;
+}
