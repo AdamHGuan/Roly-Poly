@@ -1,0 +1,18 @@
+.deck-detail-container-outer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 89vh;
+	width: 100vw;
+	overflow-y: scroll;
+}
+
+.detail-deck-h1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.detail-deck-btn-container {
+	display: flex;
+	flex-direction: row;
+	gap: 3em;
+}

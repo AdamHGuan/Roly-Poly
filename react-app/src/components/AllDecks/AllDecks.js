@@ -21,7 +21,7 @@ function AllDecks() {
 		<>
 			<div className="deck-container-outer">
 				<div>
-					<h1>This is the All Decks page</h1>
+					<h1 className="all-deck-h1">This is the All Decks page</h1>
 				</div>
 				<div>
 					<AddDeckFormModal />
@@ -31,16 +31,14 @@ function AllDecks() {
 						decks?.map((deck) => {
 							return (
 								<div key={deck.id} className="single-deck-container">
-									<NavLink to={`/decks/${deck.id}`}>
-										<div>
-											<div>
-												<img
-													src={deck?.deckImgUrl}
-													alt="Deck Cover"
-													className="deck-img"
-												/>
-												<p>{deck?.title}</p>
-											</div>
+									<NavLink to={`/decks/${deck.id}`} className="deck-content">
+										<div className="deck-content-info">
+											<img
+												src={deck?.deckImgUrl}
+												alt="Deck Cover"
+												className="deck-img"
+											/>
+											<p className="deck-title">{deck?.title}</p>
 										</div>
 									</NavLink>
 								</div>
