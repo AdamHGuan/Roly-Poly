@@ -11,7 +11,7 @@ function DeleteCardFromDeckForm({ onClose, isModal }) {
 	const history = useHistory();
 	const { deckId } = useParams();
 	const deckCards = useSelector((state) => state.deck_card?.deck_cards);
-	const [cardId, setCardId] = useState(deckCards[0].id);
+	const [cardId, setCardId] = useState(deckCards[0]?.id);
 
 	// console.log(deckCards[0].id);
 
