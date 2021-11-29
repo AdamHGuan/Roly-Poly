@@ -47,7 +47,6 @@ function EditDeckForm({ deck, onClose, isModal }) {
 						<input
 							type="text"
 							placeholder="title"
-							required
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
 						/>
@@ -65,7 +64,6 @@ function EditDeckForm({ deck, onClose, isModal }) {
 						<input
 							type="text"
 							placeholder="URL"
-							required
 							value={deckImgUrl}
 							onChange={(e) => setDeckImgUrl(e.target.value)}
 						/>

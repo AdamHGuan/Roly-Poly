@@ -32,6 +32,17 @@ function DeckDetail() {
 	}, [dispatch, deckId]);
 
 	if (deck) {
+		if (deckCards.length === 0)
+			return (
+				<>
+					<p>There deck does not have any cards</p>
+					<div>
+						<NavLink to={`/cards`}>
+							<div>To all Cards</div>
+						</NavLink>
+					</div>
+				</>
+			);
 		return (
 			<>
 				<div className="deck-detail-container-outer">

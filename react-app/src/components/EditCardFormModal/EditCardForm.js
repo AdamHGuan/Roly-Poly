@@ -47,7 +47,6 @@ function EditCardForm({ card, onClose, isModal }) {
 						<input
 							type="text"
 							placeholder="front content"
-							required
 							value={frontContent}
 							onChange={(e) => setFrontContent(e.target.value)}
 						/>
@@ -57,7 +56,6 @@ function EditCardForm({ card, onClose, isModal }) {
 						<input
 							type="text"
 							placeholder="back content"
-							required
 							value={backContent}
 							onChange={(e) => setBackContent(e.target.value)}
 						/>
