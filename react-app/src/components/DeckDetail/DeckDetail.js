@@ -32,25 +32,23 @@ function DeckDetail() {
 	if (deck) {
 		return (
 			<>
-				<div>
-					<NavLink to={`/decks`}>
-						<div>To all Decks</div>
-					</NavLink>
-				</div>
-				<div>
-					<h1>This is the Deck Detail page</h1>
-				</div>
-				<div>
-					<p>{deck?.title}</p>
-				</div>
-				<div>
-					<img src={deck?.deckImgUrl} alt="deck?.title" className="deck-img" />
-				</div>
-				<div>
-					<EditDeckFormModal deck={deck} />
-				</div>
-				<div>
-					<DeleteDeckFormModal deck={deck} />
+				<div className="deck-detail-container-outer">
+					<div>
+						<NavLink to={`/decks`}>
+							<div>To all Decks</div>
+						</NavLink>
+					</div>
+					<div>
+						<h1 className="detail-deck-h1"> {deck?.title}</h1>
+					</div>
+					<div className="detail-deck-btn-container">
+						<div>
+							<EditDeckFormModal deck={deck} />
+						</div>
+						<div>
+							<DeleteDeckFormModal deck={deck} />
+						</div>
+					</div>
 				</div>
 
 				<div>

@@ -1,0 +1,27 @@
+.card-content {
+	margin: 1%;
+	width: 30%;
+	height: 40%;
+	border: 1px solid black;
+	display: flex;
+	word-break: break-all;
+	justify-content: center;
+	align-items: center;
+	transform-style: preserve-3d;
+	transition: 230ms;
+}
+
+.card-content.front {
+	transform: rotateY(3.142rad);
+}
+
+.card-back-content {
+	transform: rotateY(3.142rad);
+}
+
+.card-front-content,
+.card-back-content {
+	position: absolute;
+	backface-visibility: hidden;
+	padding: 1em 1em 1em 1em;
+}
