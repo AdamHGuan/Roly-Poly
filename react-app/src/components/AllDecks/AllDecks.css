@@ -29,6 +29,7 @@
 	width: 20%;
 	height: 40%;
 	border: 1px solid black;
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
 	display: flex;
 	word-break: break-all;
 	justify-content: center;

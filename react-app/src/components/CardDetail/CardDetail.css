@@ -23,6 +23,7 @@
 	height: 35%;
 	width: 70%;
 	border: 1px solid black;
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
 	word-break: break-all;
 	display: flex;
 	justify-content: center;

@@ -24,9 +24,11 @@ function AllCards() {
 				<h1 className="all-card-h1">All Cards</h1>
 			</div>
 			<div>
+				<h4>one click to flip and double click to go to card detail page</h4>
+			</div>
+			<div>
 				<AddCardFormModal />
 			</div>
-
 			<div className="card-container-main">
 				{cards?.map((card) => {
 					return <FlipCard card={card} key={card.id} />;

@@ -43,6 +43,7 @@ function DeckDetail() {
 					<div>
 						<h1 className="detail-deck-h1"> {deck?.title}</h1>
 					</div>
+
 					<div className="detail-deck-btn-container">
 						<div>
 							<EditDeckFormModal deck={deck} />
@@ -51,7 +52,7 @@ function DeckDetail() {
 							<DeleteDeckFormModal deck={deck} />
 						</div>
 					</div>
-					<p>There deck does not have any cards</p>
+					<p>This deck does not have any cards</p>
 					<div>
 						<NavLink to={`/cards`}>
 							<div>To all Cards</div>
@@ -72,6 +73,11 @@ function DeckDetail() {
 					</div>
 					<div>
 						<h1 className="detail-deck-h1"> {deck?.title}</h1>
+					</div>
+					<div>
+						<h4>
+							one click to flip and double click to go to card detail page
+						</h4>
 					</div>
 					<div className="detail-deck-btn-container">
 						<div>
