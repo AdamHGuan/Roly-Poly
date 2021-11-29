@@ -47,27 +47,27 @@ function App() {
 				<ProtectedRoute path="/users/:userId" exact={true}>
 					<User />
 				</ProtectedRoute>
-				<Route path="/decks/:deckId" exact={true}>
+				<ProtectedRoute path="/decks/:deckId" exact={true}>
 					<DeckDetail />
-				</Route>
+				</ProtectedRoute>
 				<ProtectedRoute path="/decks" exact={true}>
 					<AllDecks />
 				</ProtectedRoute>
-				<Route path="/cards/:cardId" exact={true}>
+				<ProtectedRoute path="/cards/:cardId" exact={true}>
 					<CardDetail />
-				</Route>
+				</ProtectedRoute>
 				<ProtectedRoute path="/cards" exact={true}>
 					<AllCards />
 				</ProtectedRoute>
 				<Route path="/" exact={true}>
 					<Home />
 				</Route>
-				<Route path="/about" exact={true}>
+				<ProtectedRoute path="/about" exact={true}>
 					<About />
-				</Route>
-				<Route>
+				</ProtectedRoute>
+				<ProtectedRoute>
 					<div>Page not found</div>
-				</Route>
+				</ProtectedRoute>
 			</Switch>
 		</BrowserRouter>
 	);

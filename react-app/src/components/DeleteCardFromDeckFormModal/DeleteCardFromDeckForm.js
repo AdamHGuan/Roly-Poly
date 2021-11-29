@@ -17,7 +17,7 @@ function DeleteCardFromDeckForm({ onClose, isModal }) {
 
 	// console.log(deckCards);
 	// const id = deck?.id;
-	const [errors, setErrors] = useState([]);
+	// const [errors, setErrors] = useState([]);
 
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
@@ -45,12 +45,12 @@ function DeleteCardFromDeckForm({ onClose, isModal }) {
 					<div>
 						<p>Remove a card from deck</p>
 					</div>
-					<div>
+					{/* <div>
 						{errors.length > 0 &&
 							errors.map((error) => (
 								<p className="login-err">{error.split(":")[1]}</p>
 							))}
-					</div>
+					</div> */}
 					<div>
 						<select value={cardId} onChange={(e) => setCardId(e.target.value)}>
 							{deckCards?.map((card) => (

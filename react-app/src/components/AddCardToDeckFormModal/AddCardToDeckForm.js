@@ -6,7 +6,7 @@ import "./AddCardToDeckForm.css";
 
 function AddCardToDeckForm({ onClose, isModal }) {
 	const dispatch = useDispatch();
-	const { user } = useSelector((state) => state.session);
+	// const { user } = useSelector((state) => state.session);
 	// const userId = user?.id;
 	const { cardId } = useParams();
 	const decks = useSelector((state) =>

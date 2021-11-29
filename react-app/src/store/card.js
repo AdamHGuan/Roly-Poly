@@ -66,6 +66,13 @@ export const editCard = (card) => async (dispatch) => {
 		const data = await response.json();
 		dispatch(createCard(data));
 		return data;
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
 	}
 };
 
