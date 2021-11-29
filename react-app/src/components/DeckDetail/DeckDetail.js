@@ -8,6 +8,8 @@ import { loadDeckCards } from "../../store/deck_card";
 
 import EditDeckFormModal from "../EditDeckFormModal";
 import DeleteDeckFormModal from "../DeleteDeckFormModal";
+import FlipCard from "../AllCards/FlipCard";
+import DeleteCardFromDeckFormModal from "../DeleteCardFromDeckFormModal";
 
 // import {  } from "../../store/";
 
@@ -48,10 +50,18 @@ function DeckDetail() {
 						<div>
 							<DeleteDeckFormModal deck={deck} />
 						</div>
+						<div>
+							<DeleteCardFromDeckFormModal />
+						</div>
+					</div>
+					<div className="card-container-main">
+						{deckCards?.map((card) => {
+							return <FlipCard card={card} key={card.id} />;
+						})}
 					</div>
 				</div>
 
-				<div>
+				{/* <div>
 					{deckCards?.map((card) => {
 						return (
 							<div key={card?.id} className="deck-card-outer">
@@ -66,7 +76,7 @@ function DeckDetail() {
 							</div>
 						);
 					})}
-				</div>
+				</div> */}
 			</>
 		);
 	}

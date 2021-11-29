@@ -8,6 +8,7 @@ import { addDeckCard, removeDeckCard } from "../../store/deck_card";
 
 import EditCardFormModal from "../EditCardFormModal";
 import DeleteCardFormModal from "../DeleteCardFormModal";
+import AddCardToDeckFormModal from "../AddCardToDeckFormModal";
 
 // import {  } from "../../store/";
 
@@ -53,6 +54,9 @@ function CardDetail() {
 						</div>
 						<div>
 							<DeleteCardFormModal card={card} />
+						</div>
+						<div>
+							<AddCardToDeckFormModal card={card} />
 						</div>
 					</div>
 
