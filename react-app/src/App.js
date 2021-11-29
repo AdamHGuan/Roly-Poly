@@ -59,9 +59,9 @@ function App() {
 				<ProtectedRoute path="/cards" exact={true}>
 					<AllCards />
 				</ProtectedRoute>
-				<ProtectedRoute path="/" exact={true}>
+				<Route path="/" exact={true}>
 					<Home />
-				</ProtectedRoute>
+				</Route>
 				<Route path="/about" exact={true}>
 					<About />
 				</Route>

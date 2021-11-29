@@ -10,6 +10,7 @@ function AddDeckForm({ onClose, isModal }) {
 
 	const [title, setTitle] = useState("");
 	const [isPublic, setIsPublic] = useState(false);
+	const [addImage, setAddImage] = useState(false);
 	const [deckImgUrl, setDeckImgUrl] = useState("");
 
 	const [errors, setErrors] = useState([]);
@@ -24,14 +25,14 @@ function AddDeckForm({ onClose, isModal }) {
 			deckImgUrl,
 		};
 
-		await dispatch(addDeck(data));
+		let res = await dispatch(addDeck(data));
 		await dispatch(loadDecks());
 
-		if (data.errors) {
-			setErrors(data.errors);
+		if (res.errors) {
+			setErrors(res.errors);
+			return;
 		}
-
-		if (isModal) {
+		if (res) {
 			onClose();
 		}
 	};
@@ -62,23 +63,35 @@ function AddDeckForm({ onClose, isModal }) {
 							onChange={(e) => setTitle(e.target.value)}
 						/>
 					</div>
-					<div>
+					{/* <div>
 						<label>Set it public?</label>
 						<input
 							type="checkbox"
 							checked={isPublic}
 							onChange={(e) => setIsPublic(!isPublic)}
 						/>
-					</div>
+					</div> */}
+
 					<div>
-						<label>Deck image URl</label>
+						<label>Add cover image?</label>
 						<input
-							type="text"
-							placeholder="URL"
-							value={deckImgUrl}
-							onChange={(e) => setDeckImgUrl(e.target.value)}
+							type="checkbox"
+							checked={addImage}
+							onChange={(e) => setAddImage(!addImage)}
 						/>
 					</div>
+
+					{addImage && (
+						<div>
+							<label>Deck image URl</label>
+							<input
+								type="text"
+								placeholder="URL"
+								value={deckImgUrl}
+								onChange={(e) => setDeckImgUrl(e.target.value)}
+							/>
+						</div>
+					)}
 
 					<div>
 						<button type="submit">Submit</button>
