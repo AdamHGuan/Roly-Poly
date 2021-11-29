@@ -9,7 +9,7 @@ def seed_decks_cards():
 
     deck = Deck.query.get(1)
 
-    for i in range(1,9):
+    for i in range(1,7):
         card = Card.query.get(i)
         deck.cards.append(card)
         db.session.add(deck)

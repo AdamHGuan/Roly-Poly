@@ -31,7 +31,6 @@ function AddCardForm({ onClose, isModal }) {
 			setErrors(res.errors);
 			return;
 		}
-		// console.log(res);
 		if (res) {
 			onClose();
 		}
@@ -72,14 +71,14 @@ function AddCardForm({ onClose, isModal }) {
 							onChange={(e) => setBackContent(e.target.value)}
 						/>
 					</div>
-					<div>
+					{/* <div>
 						<label>Set it public?</label>
 						<input
 							type="checkbox"
 							checked={isPublic}
 							onChange={(e) => setIsPublic(!isPublic)}
 						/>
-					</div>
+					</div> */}
 
 					<div>
 						<button type="submit">Submit</button>
