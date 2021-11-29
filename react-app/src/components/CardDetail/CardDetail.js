@@ -38,7 +38,7 @@ function CardDetail() {
 						</NavLink>
 					</div>
 					<div>
-						<h1 className="detail-card-h1">Card Detail page</h1>
+						<h1 className="detail-card-h1">Card Detail</h1>
 					</div>
 					<div className="detail-card-btn-container">
 						<div>
