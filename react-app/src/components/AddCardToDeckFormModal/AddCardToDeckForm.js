@@ -13,7 +13,7 @@ function AddCardToDeckForm({ onClose, isModal }) {
 		state.deck?.decks?.sort((a, b) => a.id - b.id)
 	);
 
-	const [deckId, setDeckId] = useState(decks[0].id);
+	const [deckId, setDeckId] = useState(decks[0]?.id);
 
 	const [errors, setErrors] = useState([]);
 

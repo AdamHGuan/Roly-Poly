@@ -63,12 +63,6 @@ function CardDetail() {
 					<div className="card-info-container">{card?.frontContent}</div>
 					<div className="card-info-container">{card?.backContent}</div>
 				</div>
-				<div>
-					<button onClick={() => addCardToDeck2(cardId)}>Add to Deck 2</button>
-					<button onClick={() => removeCardfromDeck2(cardId)}>
-						Remove from Deck 2
-					</button>
-				</div>
 			</>
 		);
 	}
