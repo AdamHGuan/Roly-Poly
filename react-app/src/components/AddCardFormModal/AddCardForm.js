@@ -10,7 +10,7 @@ function AddCardForm({ onClose, isModal }) {
 
 	const [frontContent, setFrontContent] = useState("");
 	const [backContent, setBackContent] = useState("");
-	const [isPublic, setIsPublic] = useState(false);
+	// const [isPublic, setIsPublic] = useState(false);
 
 	const [errors, setErrors] = useState([]);
 
@@ -21,7 +21,7 @@ function AddCardForm({ onClose, isModal }) {
 			userId,
 			frontContent,
 			backContent,
-			isPublic,
+			// isPublic,
 		};
 
 		let res = await dispatch(addCard(data));
@@ -49,8 +49,10 @@ function AddCardForm({ onClose, isModal }) {
 					</div>
 					<div>
 						{errors.length > 0 &&
-							errors.map((error) => (
-								<p className="login-err">{error.split(":")[1]}</p>
+							errors.map((error, ind) => (
+								<p key={ind} className="login-err">
+									{error.split(":")[1]}
+								</p>
 							))}
 					</div>
 					<div>

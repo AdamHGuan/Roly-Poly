@@ -10,7 +10,9 @@ function EditCardForm({ card, onClose, isModal }) {
 
 	const [frontContent, setFrontContent] = useState(card?.frontContent);
 	const [backContent, setBackContent] = useState(card?.backContent);
-	const [isPublic, setIsPublic] = useState(card?.isPublic);
+	// const [isPublic, setIsPublic] = useState(card?.isPublic);
+
+	const [errors, setErrors] = useState([]);
 
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
@@ -19,15 +21,19 @@ function EditCardForm({ card, onClose, isModal }) {
 			id,
 			frontContent,
 			backContent,
-			isPublic,
+			// isPublic,
 		};
 
-		await dispatch(editCard(data));
+		let res = await dispatch(editCard(data));
 		await dispatch(loadCards());
 
-		// if (isModal) {
-		// 	onClose();
-		// }
+		if (res.errors) {
+			setErrors(res.errors);
+			return;
+		}
+		if (res) {
+			onClose();
+		}
 	};
 
 	const handleCancelClick = (e) => {
@@ -41,13 +47,19 @@ function EditCardForm({ card, onClose, isModal }) {
 					<div>
 						<p>Card Edit</p>
 					</div>
-
+					<div>
+						{errors.length > 0 &&
+							errors.map((error, ind) => (
+								<p key={ind} className="login-err">
+									{error.split(":")[1]}
+								</p>
+							))}
+					</div>
 					<div>
 						<label>Card front side</label>
 						<input
 							type="text"
 							placeholder="front content"
-							required
 							value={frontContent}
 							onChange={(e) => setFrontContent(e.target.value)}
 						/>
@@ -57,19 +69,18 @@ function EditCardForm({ card, onClose, isModal }) {
 						<input
 							type="text"
 							placeholder="back content"
-							required
 							value={backContent}
 							onChange={(e) => setBackContent(e.target.value)}
 						/>
 					</div>
-					<div>
+					{/* <div>
 						<label>Set it public?</label>
 						<input
 							type="checkbox"
 							checked={isPublic}
 							onChange={(e) => setIsPublic(!isPublic)}
 						/>
-					</div>
+					</div> */}
 
 					<div>
 						<button type="submit">Submit</button>

@@ -66,6 +66,13 @@ export const editDeck = (deck) => async (dispatch) => {
 		const data = await response.json();
 		dispatch(createDeck(data));
 		return data;
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
 	}
 };
 

@@ -9,7 +9,7 @@ function AddDeckForm({ onClose, isModal }) {
 	const userId = user?.id;
 
 	const [title, setTitle] = useState("");
-	const [isPublic, setIsPublic] = useState(false);
+	// const [isPublic, setIsPublic] = useState(false);
 	const [addImage, setAddImage] = useState(false);
 	const [deckImgUrl, setDeckImgUrl] = useState("");
 
@@ -21,7 +21,7 @@ function AddDeckForm({ onClose, isModal }) {
 		const data = {
 			userId,
 			title,
-			isPublic,
+			// isPublic,
 			deckImgUrl,
 		};
 
@@ -50,8 +50,10 @@ function AddDeckForm({ onClose, isModal }) {
 					</div>
 					<div>
 						{errors.length > 0 &&
-							errors.map((error) => (
-								<p className="login-err">{error.split(":")[1]}</p>
+							errors.map((error, ind) => (
+								<p key={ind} className="login-err">
+									{error.split(":")[1]}
+								</p>
 							))}
 					</div>
 					<div>

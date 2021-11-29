@@ -31,6 +31,36 @@ function DeckDetail() {
 		dispatch(loadDeckCards(deckId));
 	}, [dispatch, deckId]);
 
+	if (deckCards?.length === 0)
+		return (
+			<>
+				<div className="deck-detail-container-outer">
+					<div>
+						<NavLink to={`/decks`}>
+							<div>To all Decks</div>
+						</NavLink>
+					</div>
+					<div>
+						<h1 className="detail-deck-h1"> {deck?.title}</h1>
+					</div>
+					<div className="detail-deck-btn-container">
+						<div>
+							<EditDeckFormModal deck={deck} />
+						</div>
+						<div>
+							<DeleteDeckFormModal deck={deck} />
+						</div>
+					</div>
+					<p>There deck does not have any cards</p>
+					<div>
+						<NavLink to={`/cards`}>
+							<div>To all Cards</div>
+						</NavLink>
+					</div>
+				</div>
+			</>
+		);
+
 	if (deck) {
 		return (
 			<>

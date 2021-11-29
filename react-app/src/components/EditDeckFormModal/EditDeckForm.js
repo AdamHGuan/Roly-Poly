@@ -9,8 +9,10 @@ function EditDeckForm({ deck, onClose, isModal }) {
 	const id = deck?.id;
 
 	const [title, setTitle] = useState(deck?.title);
-	const [isPublic, setIsPublic] = useState(deck?.isPublic);
+	// const [isPublic, setIsPublic] = useState(deck?.isPublic);
 	const [deckImgUrl, setDeckImgUrl] = useState(deck?.deckImgUrl);
+
+	const [errors, setErrors] = useState([]);
 
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
@@ -18,16 +20,20 @@ function EditDeckForm({ deck, onClose, isModal }) {
 		const data = {
 			id,
 			title,
-			isPublic,
+			// isPublic,
 			deckImgUrl,
 		};
 
-		await dispatch(editDeck(data));
+		let res = await dispatch(editDeck(data));
 		await dispatch(loadDecks());
 
-		// if (isModal) {
-		// 	onClose();
-		// }
+		if (res.errors) {
+			setErrors(res.errors);
+			return;
+		}
+		if (res) {
+			onClose();
+		}
 	};
 
 	const handleCancelClick = (e) => {
@@ -41,31 +47,36 @@ function EditDeckForm({ deck, onClose, isModal }) {
 					<div>
 						<p>Deck Edit</p>
 					</div>
-
+					<div>
+						{errors.length > 0 &&
+							errors.map((error, ind) => (
+								<p key={ind} className="login-err">
+									{error.split(":")[1]}
+								</p>
+							))}
+					</div>
 					<div>
 						<label>Deck title</label>
 						<input
 							type="text"
 							placeholder="title"
-							required
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
 						/>
 					</div>
-					<div>
+					{/* <div>
 						<label>Set it public?</label>
 						<input
 							type="checkbox"
 							checked={isPublic}
 							onChange={(e) => setIsPublic(!isPublic)}
 						/>
-					</div>
+					</div> */}
 					<div>
 						<label>Deck image URl</label>
 						<input
 							type="text"
 							placeholder="URL"
-							required
 							value={deckImgUrl}
 							onChange={(e) => setDeckImgUrl(e.target.value)}
 						/>
