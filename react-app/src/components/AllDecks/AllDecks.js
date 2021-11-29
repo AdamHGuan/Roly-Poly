@@ -23,8 +23,9 @@ function AllDecks() {
 		<>
 			<div className="deck-container-outer">
 				<div>
-					<h1 className="all-deck-h1">This is the All Decks page</h1>
+					<h1 className="all-deck-h1">All Decks</h1>
 				</div>
+
 				<div>
 					<AddDeckFormModal />
 				</div>

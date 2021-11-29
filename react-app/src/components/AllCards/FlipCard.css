@@ -3,12 +3,14 @@
 	width: 30%;
 	height: 40%;
 	border: 1px solid black;
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
 	display: flex;
 	word-break: break-all;
 	justify-content: center;
 	align-items: center;
 	transform-style: preserve-3d;
-	transition: 230ms;
+	transition: 1.5s;
+	margin-bottom: 1.5em;
 }
 
 .card-content.front {
