@@ -51,7 +51,7 @@ function DeckDetail() {
 							<DeleteDeckFormModal deck={deck} />
 						</div>
 					</div>
-					<p>There deck does not have any cards</p>
+					<p>This deck does not have any cards</p>
 					<div>
 						<NavLink to={`/cards`}>
 							<div>To all Cards</div>
