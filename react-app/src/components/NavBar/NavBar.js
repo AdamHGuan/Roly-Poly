@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import LogoutButton from "../auth/LogoutButton";
 import { loadDecks } from "../../store/deck";
@@ -15,6 +15,8 @@ import logo from "./logo.jpeg";
 
 const NavBar = () => {
 	const dispatch = useDispatch();
+	const history = useHistory();
+
 	const sessionUser = useSelector((state) => state.session.user);
 
 	const [openDropDown, setOpenDropDown] = useState(false);
@@ -30,14 +32,14 @@ const NavBar = () => {
 		dispatch(login("demo@aa.io", "password"));
 		setOpenDropDown(false);
 	};
-	const handleLoginClick = () => {
-		setOpenLogin(true);
-		setOpenDropDown(false);
-	};
-	const handleSignUpClick = () => {
-		setOpenSignUp(true);
-		setOpenDropDown(false);
-	};
+	// const handleLoginClick = () => {
+	// 	setOpenLogin(true);
+	// 	setOpenDropDown(false);
+	// };
+	// const handleSignUpClick = () => {
+	// 	setOpenSignUp(true);
+	// 	setOpenDropDown(false);
+	// };
 
 	return (
 		<nav>
@@ -75,11 +77,17 @@ const NavBar = () => {
 							<div className="profile-drop-down">
 								{!sessionUser ? (
 									<div className="dropdown-inside-loggedout">
-										<p onClick={handleLoginClick} className="login-p">
+										<p
+											onClick={() => history.push("/login")}
+											className="login-p"
+										>
 											Login
 										</p>
 
-										<p onClick={handleSignUpClick} className="login-p">
+										<p
+											onClick={() => history.push("/sign-up")}
+											className="login-p"
+										>
 											Sign Up
 										</p>
 
