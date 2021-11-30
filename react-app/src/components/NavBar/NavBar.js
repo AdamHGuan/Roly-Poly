@@ -6,7 +6,7 @@ import { login } from "../../store/session";
 import LogoutButton from "../auth/LogoutButton";
 import { loadDecks } from "../../store/deck";
 import { loadCards } from "../../store/card";
-import { MdStorage } from "react-icons/md";
+import { GiGreekTemple } from "react-icons/gi";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
 import "./NavBar.css";
@@ -71,7 +71,7 @@ const NavBar = () => {
 									: "nav-profile-click closed"
 							}
 						>
-							<MdStorage className="nav-pp-logo" />
+							<GiGreekTemple className="nav-pp-logo" />
 						</div>
 						{openDropDown && (
 							<div className="profile-drop-down">
