@@ -1,0 +1,64 @@
+.loginForm-main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 89vh;
+	width: 100vw;
+	background-image: url(../Background/background.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.loginForm {
+	display: flex;
+	size: 2.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	flex-direction: column;
+	align-items: center;
+	height: 60%;
+	width: 30%;
+	margin-top: 3rem;
+	margin-left: 3rem;
+	padding-top: 3em;
+	border: 1px solid black;
+	border-radius: 10%;
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.error-msg-container {
+	display: flex;
+	size: 2.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	flex-direction: column;
+	align-items: center;
+	height: 5rem;
+	width: 100%;
+	margin-top: 3rem;
+	margin-left: 3rem;
+}
+
+.error-msg {
+	margin-bottom: 1rem;
+}
+
+.loginForm-section {
+	margin-bottom: 1.5rem;
+}
+.loginForm-label {
+	margin-right: 1rem;
+}
+
+.loginForm-btn-container {
+	display: flex;
+	size: 2.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	flex-direction: row;
+	align-items: center;
+}
+
+.loginForm-btn-msg {
+	margin-right: 1rem;
+}
