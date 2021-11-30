@@ -10,6 +10,7 @@ function DeleteCardFromDeckFormModal({ deck }) {
 	return (
 		<>
 			<button
+				className="btn"
 				title="Delete a carc from this deck"
 				onClick={() => setShowModal(true)}
 			>

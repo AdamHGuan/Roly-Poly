@@ -9,7 +9,11 @@ function AddCardToDeckFormModal() {
 
 	return (
 		<>
-			<button title="Add Card to a Deck" onClick={() => setShowModal(true)}>
+			<button
+				className="btn"
+				title="Add Card to a Deck"
+				onClick={() => setShowModal(true)}
+			>
 				Add Card to a Deck
 			</button>
 			{showModal && (

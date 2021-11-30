@@ -9,7 +9,11 @@ function AddCardFormModal() {
 
 	return (
 		<>
-			<button title="Add Card" onClick={() => setShowModal(true)}>
+			<button
+				className="btn"
+				title="Add Card"
+				onClick={() => setShowModal(true)}
+			>
 				Add Card
 			</button>
 			{showModal && (

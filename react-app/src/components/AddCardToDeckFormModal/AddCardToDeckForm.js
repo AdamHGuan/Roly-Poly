@@ -65,10 +65,12 @@ function AddCardToDeckForm({ onClose, isModal }) {
 					</div>
 
 					<div>
-						<button type="submit">Submit</button>
+						<button className="btn" type="submit">
+							Submit
+						</button>
 					</div>
 					<div>
-						<button type="button" onClick={handleCancelClick}>
+						<button className="btn" type="button" onClick={handleCancelClick}>
 							Cancel
 						</button>
 					</div>
