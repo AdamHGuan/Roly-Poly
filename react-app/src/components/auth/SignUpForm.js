@@ -31,7 +31,7 @@ const SignUpForm = () => {
 			const data = await dispatch(signUp(username, email));
 			if (data) {
 				data.pop();
-				data.push("password : both passwords do not match.");
+				data.push("password : Both passwords must match.");
 				setErrors(data);
 			}
 		}
