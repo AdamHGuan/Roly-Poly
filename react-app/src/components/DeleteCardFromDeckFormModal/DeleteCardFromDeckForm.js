@@ -40,10 +40,10 @@ function DeleteCardFromDeckForm({ onClose, isModal }) {
 
 	return (
 		<>
-			<div>
+			<div className="modal-main">
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Remove a card from deck</p>
+						<h4 className="modal-h4">Remove a card from deck</h4>
 					</div>
 					{/* <div>
 						{errors.length > 0 &&
@@ -51,21 +51,21 @@ function DeleteCardFromDeckForm({ onClose, isModal }) {
 								<p className="login-err">{error.split(":")[1]}</p>
 							))}
 					</div> */}
-					<div>
+					<div className="modal-section">
 						<select value={cardId} onChange={(e) => setCardId(e.target.value)}>
 							{deckCards?.map((card) => (
 								<option key={card.id} value={card.id}>
-									{card.frontContent.slice(0, 35)}
+									{card.frontContent.slice(0, 20)}
 								</option>
 							))}
 						</select>
 					</div>
 
-					<div>
-						<button type="submit">Submit</button>
-					</div>
-					<div>
-						<button type="button" onClick={handleCancelClick}>
+					<div className="modal-btn-container">
+						<button className="btn" type="submit">
+							Submit
+						</button>
+						<button className="btn" type="button" onClick={handleCancelClick}>
 							Cancel
 						</button>
 					</div>

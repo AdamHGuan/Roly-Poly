@@ -4,6 +4,9 @@
 	align-items: center;
 	height: 89vh;
 	width: 100vw;
+	background-image: url(../Background/background.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .deck-container-main {
@@ -70,4 +73,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.all-deck-btn-container {
+	display: flex;
+	flex-direction: row;
+	gap: 3em;
 }

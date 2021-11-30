@@ -15,3 +15,42 @@ h4 {
 	margin-inline-end: 0px;
 	font-weight: bold;
 }
+
+h4 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+	border: none;
+	background-color: transparent;
+	font-family: inherit;
+	padding: 0;
+	cursor: pointer;
+}
+
+.btn {
+	display: inline-block;
+	padding: 0.2em 1.45em;
+	margin: 0.1em;
+	border: 0.15em solid #beb9b9;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "Segoe UI", "Roboto", sans-serif;
+	font-weight: 500;
+	color: black;
+	background-color: #f6f6f6;
+	text-align: center;
+	position: relative;
+}
+.btn:hover {
+	border-color: #7a7a7a;
+}
+.btn:active {
+	background-color: #999999;
+}
+@media all and (max-width: 30em) {
+	 .btn {
+		display: block;
+		margin: 0.2em auto;
+	}
+}

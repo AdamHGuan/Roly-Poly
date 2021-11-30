@@ -30,6 +30,11 @@ nav {
 	height: 10vh;
 	width: 10vh;
 	padding-bottom: 0px;
+	border-radius: 50%;
+}
+
+.roly-poly-logo:hover {
+	box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
 }
 
 .nav-bar-title {
@@ -54,10 +59,10 @@ nav {
 	align-items: center;
 	justify-content: center;
 	gap: 3px;
-	height: 43px;
-	width: 75px;
-	background-color: white;
-	border-radius: 40px;
+	height: 3em;
+	width: 3em;
+	background-color: #f6f6f6;
+	border-radius: 50%;
 	padding: 5px;
 	cursor: pointer;
 	border: 1px solid #dddddd;
@@ -78,11 +83,11 @@ nav {
 .profile-drop-down {
 	list-style: none;
 	position: fixed;
-	margin-top: 2.7rem;
-	margin-left: -5.5rem;
-	width: 10rem;
-	height: 11rem;
-	background-color: white;
+	margin-top: 3.8rem;
+	margin-left: -0.6rem;
+	width: 5rem;
+	height: 10rem;
+	background-color: #f6f6f6;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -105,7 +110,16 @@ nav {
 }
 
 .login-p {
+	padding-top: 0.5em;
+	padding-left: 0.4em;
 	margin: 0;
+	color: black;
+	text-decoration: none;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login-p:hover {
+	color: lightgray;
 }
 
 .dropdown-inside {
@@ -133,7 +147,7 @@ nav {
 	box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
 }
 
-.logout-botton {
+/* .logout-botton {
 	border-top: 1px solid #dddddd;
 	padding-top: 5px;
 	cursor: pointer;
@@ -151,4 +165,18 @@ nav {
 
 .logout-botton > button:hover {
 	color: #fe385c;
+} */
+
+.logout-botton {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.inactive {
+	text-decoration: none;
 }

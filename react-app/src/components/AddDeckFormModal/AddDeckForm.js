@@ -43,12 +43,12 @@ function AddDeckForm({ onClose, isModal }) {
 
 	return (
 		<>
-			<div>
+			<div className="modal-main">
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Add a deck</p>
+						<h4 className="modal-h4">Add a deck</h4>
 					</div>
-					<div>
+					<div className="error-msg-container-modal">
 						{errors.length > 0 &&
 							errors.map((error, ind) => (
 								<p key={ind} className="login-err">
@@ -56,8 +56,8 @@ function AddDeckForm({ onClose, isModal }) {
 								</p>
 							))}
 					</div>
-					<div>
-						<label>Deck title</label>
+					<div className="modal-section">
+						<label className="modal-label">Deck title</label>
 						<input
 							type="text"
 							placeholder="title"
@@ -74,8 +74,8 @@ function AddDeckForm({ onClose, isModal }) {
 						/>
 					</div> */}
 
-					<div>
-						<label>Add cover image?</label>
+					<div className="modal-section">
+						<label className="modal-label">Add cover image?</label>
 						<input
 							type="checkbox"
 							checked={addImage}
@@ -84,8 +84,8 @@ function AddDeckForm({ onClose, isModal }) {
 					</div>
 
 					{addImage && (
-						<div>
-							<label>Deck image URl</label>
+						<div className="modal-section">
+							<label className="modal-label">Deck image URl</label>
 							<input
 								type="text"
 								placeholder="URL"
@@ -95,11 +95,11 @@ function AddDeckForm({ onClose, isModal }) {
 						</div>
 					)}
 
-					<div>
-						<button type="submit">Submit</button>
-					</div>
-					<div>
-						<button type="button" onClick={handleCancelClick}>
+					<div className="modal-btn-container">
+						<button className="btn" type="submit">
+							Submit
+						</button>
+						<button className="btn" type="button" onClick={handleCancelClick}>
 							Cancel
 						</button>
 					</div>

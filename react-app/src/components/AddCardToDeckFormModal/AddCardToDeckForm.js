@@ -43,18 +43,18 @@ function AddCardToDeckForm({ onClose, isModal }) {
 
 	return (
 		<>
-			<div>
+			<div className="modal-main">
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Add this card to a deck</p>
+						<h4 className="modal-h4">Add this card to a deck</h4>
 					</div>
-					<div>
+					<div className="error-msg-container-modal">
 						{errors.length > 0 &&
 							errors.map((error) => (
 								<p className="login-err">{error.split(":")[1]}</p>
 							))}
 					</div>
-					<div>
+					<div className="modal-section">
 						<select value={deckId} onChange={(e) => setDeckId(e.target.value)}>
 							{decks?.map((deck) => (
 								<option key={deck.id} value={deck.id}>
@@ -64,11 +64,11 @@ function AddCardToDeckForm({ onClose, isModal }) {
 						</select>
 					</div>
 
-					<div>
-						<button type="submit">Submit</button>
-					</div>
-					<div>
-						<button type="button" onClick={handleCancelClick}>
+					<div className="modal-btn-container">
+						<button className="btn" type="submit">
+							Submit
+						</button>
+						<button className="btn" type="button" onClick={handleCancelClick}>
 							Cancel
 						</button>
 					</div>

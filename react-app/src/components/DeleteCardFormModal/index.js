@@ -9,7 +9,11 @@ function DeleteCardFormModal({ card }) {
 
 	return (
 		<>
-			<button title="Delete Card" onClick={() => setShowModal(true)}>
+			<button
+				className="btn"
+				title="Delete Card"
+				onClick={() => setShowModal(true)}
+			>
 				Delete Card
 			</button>
 			{showModal && (

@@ -9,7 +9,11 @@ function EditCardFormModal({ card }) {
 
 	return (
 		<>
-			<button title="Edit Card" onClick={() => setShowModal(true)}>
+			<button
+				className="btn"
+				title="Edit Card"
+				onClick={() => setShowModal(true)}
+			>
 				Edit Card
 			</button>
 			{showModal && (

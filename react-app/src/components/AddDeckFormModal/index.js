@@ -9,7 +9,11 @@ function AddDeckFormModal() {
 
 	return (
 		<>
-			<button title="Add Deck" onClick={() => setShowModal(true)}>
+			<button
+				className="btn"
+				title="Add Deck"
+				onClick={() => setShowModal(true)}
+			>
 				Add Deck
 			</button>
 			{showModal && (

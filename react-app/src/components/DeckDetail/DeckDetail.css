@@ -5,6 +5,9 @@
 	height: 89vh;
 	width: 100vw;
 	overflow-y: scroll;
+	background-image: url(../Background/background.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .detail-deck-h1 {

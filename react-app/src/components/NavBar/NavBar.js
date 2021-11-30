@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import LogoutButton from "../auth/LogoutButton";
-import { loadDecks } from "../../store/deck";
-import { loadCards } from "../../store/card";
-import { MdStorage } from "react-icons/md";
+// import { loadDecks } from "../../store/deck";
+// import { loadCards } from "../../store/card";
+import { GiGreekTemple } from "react-icons/gi";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
 import "./NavBar.css";
@@ -23,10 +23,10 @@ const NavBar = () => {
 	const [openLogin, setOpenLogin] = useState(false);
 	const [openSignUp, setOpenSignUp] = useState(false);
 
-	useEffect(() => {
-		dispatch(loadDecks());
-		dispatch(loadCards());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(loadDecks());
+	// 	dispatch(loadCards());
+	// }, [dispatch]);
 
 	const handleDemoLogin = () => {
 		dispatch(login("demo@aa.io", "password"));
@@ -71,7 +71,7 @@ const NavBar = () => {
 									: "nav-profile-click closed"
 							}
 						>
-							<MdStorage className="nav-pp-logo" />
+							<GiGreekTemple className="nav-pp-logo" />
 						</div>
 						{openDropDown && (
 							<div className="profile-drop-down">
@@ -91,8 +91,8 @@ const NavBar = () => {
 											Sign Up
 										</p>
 
-										<p onClick={handleDemoLogin} className="inactive">
-											Demo Login
+										<p onClick={handleDemoLogin} className="login-p">
+											Demo
 										</p>
 									</div>
 								) : (
@@ -103,26 +103,26 @@ const NavBar = () => {
 												to={`/decks`}
 												onClick={() => setOpenDropDown(false)}
 											>
-												Decks
+												<p className="login-p">Decks</p>
 											</NavLink>
 											<NavLink
 												className="inactive"
 												to={`/cards`}
 												onClick={() => setOpenDropDown(false)}
 											>
-												Cards
+												<p className="login-p">Cards</p>
 											</NavLink>
 											<NavLink
 												className="inactive"
 												to={`/about`}
 												onClick={() => setOpenDropDown(false)}
 											>
-												About
+												<p className="login-p">About</p>
 											</NavLink>
 										</div>
 										<div
 											onClick={() => setOpenDropDown(false)}
-											className="logout-botton"
+											// className="logout-botton"
 										>
 											<LogoutButton />
 										</div>

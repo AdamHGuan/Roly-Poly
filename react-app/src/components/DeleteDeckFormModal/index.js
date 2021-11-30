@@ -9,7 +9,11 @@ function DeleteDeckFormModal({ deck }) {
 
 	return (
 		<>
-			<button title="Delete Deck" onClick={() => setShowModal(true)}>
+			<button
+				className="btn"
+				title="Delete Deck"
+				onClick={() => setShowModal(true)}
+			>
 				Delete Deck
 			</button>
 			{showModal && (

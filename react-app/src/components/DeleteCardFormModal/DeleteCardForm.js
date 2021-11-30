@@ -37,17 +37,18 @@ function DeleteCardForm({ card, onClose, isModal }) {
 
 	return (
 		<>
-			<div>
+			<div className="modal-main">
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Remove this card?</p>
+						<h4 className="modal-h4">Remove this card?</h4>
 					</div>
 
-					<div>
-						<button type="submit">Submit</button>
-					</div>
-					<div>
-						<button type="button" onClick={handleCancelClick}>
+					<div className="modal-btn-container">
+						<button className="btn" type="submit">
+							Submit
+						</button>
+
+						<button className="btn" type="button" onClick={handleCancelClick}>
 							Cancel
 						</button>
 					</div>

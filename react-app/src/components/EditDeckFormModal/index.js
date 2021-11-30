@@ -9,7 +9,11 @@ function EditDeckFormModal({ deck }) {
 
 	return (
 		<>
-			<button title="Edit Deck" onClick={() => setShowModal(true)}>
+			<button
+				className="btn"
+				title="Edit Deck"
+				onClick={() => setShowModal(true)}
+			>
 				Edit Deck
 			</button>
 			{showModal && (

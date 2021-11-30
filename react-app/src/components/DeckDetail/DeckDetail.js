@@ -36,15 +36,20 @@ function DeckDetail() {
 			<>
 				<div className="deck-detail-container-outer">
 					<div>
-						<NavLink to={`/decks`}>
-							<div>To all Decks</div>
-						</NavLink>
-					</div>
-					<div>
 						<h1 className="detail-deck-h1"> {deck?.title}</h1>
 					</div>
 
 					<div className="detail-deck-btn-container">
+						<div>
+							<NavLink to={`/decks`}>
+								<button className="btn">Decks</button>
+							</NavLink>
+						</div>
+						<div>
+							<NavLink to={`/cards`}>
+								<button className="btn">Cards</button>
+							</NavLink>
+						</div>
 						<div>
 							<EditDeckFormModal deck={deck} />
 						</div>
@@ -52,12 +57,7 @@ function DeckDetail() {
 							<DeleteDeckFormModal deck={deck} />
 						</div>
 					</div>
-					<p>This deck does not have any cards</p>
-					<div>
-						<NavLink to={`/cards`}>
-							<div>To all Cards</div>
-						</NavLink>
-					</div>
+					<h4>This deck does not have any cards</h4>
 				</div>
 			</>
 		);
@@ -67,19 +67,22 @@ function DeckDetail() {
 			<>
 				<div className="deck-detail-container-outer">
 					<div>
-						<NavLink to={`/decks`}>
-							<div>To all Decks</div>
-						</NavLink>
-					</div>
-					<div>
 						<h1 className="detail-deck-h1"> {deck?.title}</h1>
 					</div>
 					<div>
-						<h4>
-							one click to flip and double click to go to card detail page
-						</h4>
+						<h4>one click to flip and double click to go to card detail</h4>
 					</div>
 					<div className="detail-deck-btn-container">
+						<div>
+							<NavLink to={`/decks`}>
+								<button className="btn">Decks</button>
+							</NavLink>
+						</div>
+						<div>
+							<NavLink to={`/cards`}>
+								<button className="btn">Cards</button>
+							</NavLink>
+						</div>
 						<div>
 							<EditDeckFormModal deck={deck} />
 						</div>
@@ -119,11 +122,20 @@ function DeckDetail() {
 
 	return (
 		<>
-			<p>Invalid Deck ID</p>
-			<div>
-				<NavLink to={`/decks`}>
-					<div>To all Decks</div>
-				</NavLink>
+			<div className="deck-detail-container-outer">
+				<h4>Invalid Deck</h4>
+				<div className="detail-deck-btn-container">
+					<div>
+						<NavLink to={`/decks`}>
+							<button className="btn">Decks</button>
+						</NavLink>
+					</div>
+					<div>
+						<NavLink to={`/cards`}>
+							<button className="btn">Cards</button>
+						</NavLink>
+					</div>
+				</div>
 			</div>
 		</>
 	);
