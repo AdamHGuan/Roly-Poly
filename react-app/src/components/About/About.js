@@ -1,11 +1,14 @@
 import React from "react";
+import Footer from "../Footer";
 
 import "./About.css";
 
 function About() {
 	return (
 		<>
-			<div className="AboutPageContainer"></div>
+			<div className="AboutPageContainer">
+				<Footer />
+			</div>
 		</>
 	);
 }
