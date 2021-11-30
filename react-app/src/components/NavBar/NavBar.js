@@ -91,8 +91,8 @@ const NavBar = () => {
 											Sign Up
 										</p>
 
-										<p onClick={handleDemoLogin} className="inactive">
-											Demo Login
+										<p onClick={handleDemoLogin} className="login-p">
+											Demo
 										</p>
 									</div>
 								) : (
@@ -103,26 +103,26 @@ const NavBar = () => {
 												to={`/decks`}
 												onClick={() => setOpenDropDown(false)}
 											>
-												Decks
+												<p className="login-p">Decks</p>
 											</NavLink>
 											<NavLink
 												className="inactive"
 												to={`/cards`}
 												onClick={() => setOpenDropDown(false)}
 											>
-												Cards
+												<p className="login-p">Cards</p>
 											</NavLink>
 											<NavLink
 												className="inactive"
 												to={`/about`}
 												onClick={() => setOpenDropDown(false)}
 											>
-												About
+												<p className="login-p">About</p>
 											</NavLink>
 										</div>
 										<div
 											onClick={() => setOpenDropDown(false)}
-											className="logout-botton"
+											// className="logout-botton"
 										>
 											<LogoutButton />
 										</div>
