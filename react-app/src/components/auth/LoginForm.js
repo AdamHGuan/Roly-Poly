@@ -40,7 +40,7 @@ const LoginForm = () => {
 	return (
 		<div className="loginForm-main">
 			<form className="loginForm" onSubmit={onLogin}>
-				<h1>Welcome to Roly-Poly!</h1>
+				<h1 className="loginForm-h1">Welcome to Roly-Poly!</h1>
 
 				<div className="error-msg-container">
 					{errors.map((error, ind) => (

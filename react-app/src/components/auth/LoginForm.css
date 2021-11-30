@@ -17,13 +17,17 @@
 	flex-direction: column;
 	align-items: center;
 	height: 60%;
-	width: 30%;
-	margin-top: 3rem;
+	width: 35%;
+	margin-top: 1.5rem;
 	margin-left: 3rem;
 	padding-top: 3em;
 	border: 1px solid black;
 	border-radius: 10%;
 	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.loginForm-h1 {
+	padding-left: 0.6em;
 }
 
 .error-msg-container {
@@ -33,18 +37,18 @@
 	font-weight: 400;
 	flex-direction: column;
 	align-items: center;
-	height: 5rem;
+	height: 11%;
 	width: 100%;
-	margin-top: 3rem;
-	margin-left: 3rem;
+	margin-top: 0.5rem;
+	margin-left: 0.5rem;
 }
 
 .error-msg {
-	margin-bottom: 1rem;
+	padding-bottom: 0.3rem;
 }
 
 .loginForm-section {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 }
 .loginForm-label {
 	margin-right: 1rem;
