@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import LogoutButton from "../auth/LogoutButton";
-import { loadDecks } from "../../store/deck";
-import { loadCards } from "../../store/card";
+// import { loadDecks } from "../../store/deck";
+// import { loadCards } from "../../store/card";
 import { GiGreekTemple } from "react-icons/gi";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
@@ -23,10 +23,10 @@ const NavBar = () => {
 	const [openLogin, setOpenLogin] = useState(false);
 	const [openSignUp, setOpenSignUp] = useState(false);
 
-	useEffect(() => {
-		dispatch(loadDecks());
-		dispatch(loadCards());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(loadDecks());
+	// 	dispatch(loadCards());
+	// }, [dispatch]);
 
 	const handleDemoLogin = () => {
 		dispatch(login("demo@aa.io", "password"));

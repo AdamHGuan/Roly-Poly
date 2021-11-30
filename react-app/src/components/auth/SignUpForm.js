@@ -26,6 +26,15 @@ const SignUpForm = () => {
 				setErrors(data);
 			}
 		}
+
+		if (password !== repeatPassword) {
+			const data = await dispatch(signUp(username, email));
+			if (data) {
+				data.pop();
+				data.push("password : both passwords do not match.");
+				setErrors(data);
+			}
+		}
 	};
 
 	const updateUsername = (e) => {
