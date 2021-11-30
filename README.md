@@ -3,7 +3,8 @@
 
 Roly-Poly, an Anki clone, is a website for users to study through the use of flashcards, and with spaced repetition technique users' memories will be strengthened.
 
-
+### Splash Page View
+![](https://res.cloudinary.com/day-lh2-98-0/image/upload/v1638265494/Roly-Poly/Screen_Shot_2021-11-30_at_1.44.14_AM_okldsv.png)
 
 ## Prerequisites
 Before you begin, please check the following Wiki documents:
