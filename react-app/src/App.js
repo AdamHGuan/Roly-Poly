@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -66,7 +66,28 @@ function App() {
 					<About />
 				</ProtectedRoute>
 				<ProtectedRoute>
-					<div>Page not found</div>
+					<>
+						<div className="card-detail-container-outer">
+							<h4>Page not found</h4>
+							<div className="detail-card-btn-container">
+								<div>
+									<NavLink to={`/`}>
+										<button className="btn">Home</button>
+									</NavLink>
+								</div>
+								<div>
+									<NavLink to={`/decks`}>
+										<button className="btn">Decks</button>
+									</NavLink>
+								</div>
+								<div>
+									<NavLink to={`/cards`}>
+										<button className="btn">Cards</button>
+									</NavLink>
+								</div>
+							</div>
+						</div>
+					</>
 				</ProtectedRoute>
 			</Switch>
 		</BrowserRouter>
