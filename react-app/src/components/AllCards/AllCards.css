@@ -4,6 +4,9 @@
 	align-items: center;
 	height: 89vh;
 	width: 100vw;
+	background-image: url(../Background/background.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .card-container-main {
