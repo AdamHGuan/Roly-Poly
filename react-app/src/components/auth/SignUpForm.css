@@ -1,0 +1,68 @@
+.SignUpForm-main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 89vh;
+	width: 100vw;
+	background-image: url(../Background/background.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.SignUpForm {
+	display: flex;
+	size: 2.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	flex-direction: column;
+	align-items: center;
+	height: 70%;
+	width: 35%;
+	margin-top: 1.5rem;
+	margin-left: 3rem;
+	padding-top: 3em;
+	border: 1px solid black;
+	border-radius: 10%;
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.SignUpForm-h1 {
+	padding-left: 0.6em;
+}
+
+.error-msg-container {
+	display: flex;
+	size: 2.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	flex-direction: column;
+	align-items: center;
+	height: 15%;
+	width: 100%;
+	margin-top: 0.5rem;
+	margin-left: 0.5rem;
+}
+
+.error-msg {
+	padding-bottom: 0.3rem;
+}
+
+.SignUpForm-section {
+	margin-bottom: 1rem;
+}
+.SignUpForm-label {
+	margin-right: 1rem;
+}
+
+.SignUpForm-btn-container {
+	display: flex;
+	size: 2.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	flex-direction: row;
+	align-items: center;
+}
+
+.SignUpForm-btn-msg {
+	margin-right: 1rem;
+}
