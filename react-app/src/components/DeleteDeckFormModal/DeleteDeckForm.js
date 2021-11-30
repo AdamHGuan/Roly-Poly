@@ -37,18 +37,16 @@ function DeleteDeckForm({ deck, onClose, isModal }) {
 
 	return (
 		<>
-			<div>
+			<div className="modal-main">
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Remove this deck?</p>
+						<h4 className="modal-h4">Delete this deck?</h4>
 					</div>
 
-					<div>
+					<div className="modal-btn-container">
 						<button className="btn" type="submit">
 							Submit
 						</button>
-					</div>
-					<div>
 						<button className="btn" type="button" onClick={handleCancelClick}>
 							Cancel
 						</button>

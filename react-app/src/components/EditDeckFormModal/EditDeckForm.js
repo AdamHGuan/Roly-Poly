@@ -42,12 +42,12 @@ function EditDeckForm({ deck, onClose, isModal }) {
 
 	return (
 		<>
-			<div>
+			<div className="modal-main">
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Deck Edit</p>
+						<h4 className="modal-h4">Deck Edit</h4>
 					</div>
-					<div>
+					<div className="error-msg-container-modal">
 						{errors.length > 0 &&
 							errors.map((error, ind) => (
 								<p key={ind} className="login-err">
@@ -55,8 +55,8 @@ function EditDeckForm({ deck, onClose, isModal }) {
 								</p>
 							))}
 					</div>
-					<div>
-						<label>Deck title</label>
+					<div className="modal-section">
+						<label className="modal-label">Deck title</label>
 						<input
 							type="text"
 							placeholder="title"
@@ -72,8 +72,8 @@ function EditDeckForm({ deck, onClose, isModal }) {
 							onChange={(e) => setIsPublic(!isPublic)}
 						/>
 					</div> */}
-					<div>
-						<label>Deck image URl</label>
+					<div className="modal-section">
+						<label className="modal-label">Deck image URl</label>
 						<input
 							type="text"
 							placeholder="URL"
@@ -82,12 +82,10 @@ function EditDeckForm({ deck, onClose, isModal }) {
 						/>
 					</div>
 
-					<div>
+					<div className="modal-btn-container">
 						<button className="btn" type="submit">
 							Submit
 						</button>
-					</div>
-					<div>
 						<button className="btn" type="button" onClick={handleCancelClick}>
 							Cancel
 						</button>

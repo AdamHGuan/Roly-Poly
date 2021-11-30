@@ -33,14 +33,19 @@ function CardDetail() {
 			<>
 				<div className="card-detail-container-outer">
 					<div>
-						<NavLink to={`/cards`}>
-							<div>To all Cards</div>
-						</NavLink>
-					</div>
-					<div>
 						<h1 className="detail-card-h1">Card Detail</h1>
 					</div>
 					<div className="detail-card-btn-container">
+						<div>
+							<NavLink to={`/decks`}>
+								<button className="btn">Decks</button>
+							</NavLink>
+						</div>
+						<div>
+							<NavLink to={`/cards`}>
+								<button className="btn">Cards</button>
+							</NavLink>
+						</div>
 						<div>
 							<EditCardFormModal card={card} />
 						</div>
@@ -61,11 +66,20 @@ function CardDetail() {
 
 	return (
 		<>
-			<p>Invalid Card ID</p>
-			<div>
-				<NavLink to={`/cards`}>
-					<div>To all Cards</div>
-				</NavLink>
+			<div className="card-detail-container-outer">
+				<h4>Invalid Card</h4>
+				<div className="detail-card-btn-container">
+					<div>
+						<NavLink to={`/decks`}>
+							<button className="btn">Decks</button>
+						</NavLink>
+					</div>
+					<div>
+						<NavLink to={`/cards`}>
+							<button className="btn">Cards</button>
+						</NavLink>
+					</div>
+				</div>
 			</div>
 		</>
 	);

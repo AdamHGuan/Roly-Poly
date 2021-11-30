@@ -26,3 +26,9 @@
 .all-card-h1 {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.all-card-btn-container {
+	display: flex;
+	flex-direction: row;
+	gap: 3em;
+}

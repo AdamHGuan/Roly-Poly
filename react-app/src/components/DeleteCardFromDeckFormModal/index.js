@@ -14,7 +14,7 @@ function DeleteCardFromDeckFormModal({ deck }) {
 				title="Delete a carc from this deck"
 				onClick={() => setShowModal(true)}
 			>
-				Delete a card from this deck
+				Delete card from deck
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

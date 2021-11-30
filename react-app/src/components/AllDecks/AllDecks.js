@@ -25,9 +25,15 @@ function AllDecks() {
 				<div>
 					<h1 className="all-deck-h1">All Decks</h1>
 				</div>
-
-				<div>
-					<AddDeckFormModal />
+				<div className="all-deck-btn-container">
+					<div>
+						<NavLink to={`/cards`}>
+							<button className="btn">Cards</button>
+						</NavLink>
+					</div>
+					<div>
+						<AddDeckFormModal />
+					</div>
 				</div>
 				<div className="deck-container-main">
 					{decks &&

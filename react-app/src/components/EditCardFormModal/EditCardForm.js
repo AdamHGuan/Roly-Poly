@@ -42,12 +42,12 @@ function EditCardForm({ card, onClose, isModal }) {
 
 	return (
 		<>
-			<div>
+			<div className="modal-main">
 				<form onSubmit={handleCreateSubmit}>
 					<div>
-						<p>Card Edit</p>
+						<h4 className="modal-h4">Card Edit</h4>
 					</div>
-					<div>
+					<div className="error-msg-container-modal">
 						{errors.length > 0 &&
 							errors.map((error, ind) => (
 								<p key={ind} className="login-err">
@@ -55,8 +55,8 @@ function EditCardForm({ card, onClose, isModal }) {
 								</p>
 							))}
 					</div>
-					<div>
-						<label>Card front side</label>
+					<div className="modal-section">
+						<label className="modal-label">Card front side</label>
 						<input
 							type="text"
 							placeholder="front content"
@@ -64,8 +64,8 @@ function EditCardForm({ card, onClose, isModal }) {
 							onChange={(e) => setFrontContent(e.target.value)}
 						/>
 					</div>
-					<div>
-						<label>Card back side</label>
+					<div className="modal-section">
+						<label className="modal-label">Card back side</label>
 						<input
 							type="text"
 							placeholder="back content"
@@ -82,12 +82,11 @@ function EditCardForm({ card, onClose, isModal }) {
 						/>
 					</div> */}
 
-					<div>
+					<div className="modal-btn-container">
 						<button className="btn" type="submit">
 							Submit
 						</button>
-					</div>
-					<div>
+
 						<button className="btn" type="button" onClick={handleCancelClick}>
 							Cancel
 						</button>
