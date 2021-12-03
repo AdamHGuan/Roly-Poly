@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import { loadCards } from "../../store/card";
+import { loadDecks } from "../../store/deck";
 
 import AddCardFormModal from "../AddCardFormModal";
 import FlipCard from "./FlipCard";
@@ -16,6 +17,7 @@ function AllCards() {
 
 	useEffect(() => {
 		dispatch(loadCards());
+		dispatch(loadDecks());
 	}, [dispatch]);
 
 	return (
