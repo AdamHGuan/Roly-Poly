@@ -4,18 +4,15 @@ import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 
 import { loadCards } from "../../store/card";
-// import { addDeckCard, removeDeckCard } from "../../store/deck_card";
+import { loadDecks } from "../../store/deck";
 
 import EditCardFormModal from "../EditCardFormModal";
 import DeleteCardFormModal from "../DeleteCardFormModal";
 import AddCardToDeckFormModal from "../AddCardToDeckFormModal";
 
-// import {  } from "../../store/";
-
 import "./CardDetail.css";
 
 function CardDetail() {
-	// const { user } = useSelector((state) => state.session);
 	const dispatch = useDispatch();
 
 	const { cardId } = useParams();
@@ -26,6 +23,7 @@ function CardDetail() {
 
 	useEffect(() => {
 		dispatch(loadCards());
+		dispatch(loadDecks());
 	}, [dispatch]);
 
 	if (card) {
