@@ -57,8 +57,10 @@ function AddCardForm({ onClose, isModal }) {
 					</div>
 					<div className="modal-section">
 						<label className="modal-label">Card front side</label>
-						<input
-							type="text"
+						<textarea
+							rows="5"
+							cols="33"
+							className="formTextArea"
 							placeholder="front content"
 							value={frontContent}
 							onChange={(e) => setFrontContent(e.target.value)}
@@ -66,8 +68,10 @@ function AddCardForm({ onClose, isModal }) {
 					</div>
 					<div className="modal-section">
 						<label className="modal-label">Card back side</label>
-						<input
-							type="text"
+						<textarea
+							rows="5"
+							cols="33"
+							className="formTextArea"
 							placeholder="back content"
 							value={backContent}
 							onChange={(e) => setBackContent(e.target.value)}
