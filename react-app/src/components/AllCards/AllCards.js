@@ -13,7 +13,9 @@ import "./AllCards.css";
 function AllCards() {
 	const dispatch = useDispatch();
 
-	const cards = useSelector((state) => state.card?.cards);
+	const cards = useSelector((state) =>
+		state.card?.cards?.sort((a, b) => b.id - a.id)
+	);
 
 	useEffect(() => {
 		dispatch(loadCards());
