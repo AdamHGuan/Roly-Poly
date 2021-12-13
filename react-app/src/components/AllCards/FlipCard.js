@@ -8,9 +8,9 @@ function FlipCard({ card }) {
 	const history = useHistory();
 
 	const fit = (info) => {
-		if (info.length < 350) return info;
+		if (info.length < 300) return info;
 
-		return info.slice(0, 350) + "...";
+		return info.slice(0, 300) + "...";
 	};
 
 	return (
