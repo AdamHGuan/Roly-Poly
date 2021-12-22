@@ -3,14 +3,14 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./FlipCard.css";
 
-function FlipCard({ card }) {
+function FlipCard({ card, CardList }) {
 	const [flip, setFlip] = useState(false);
 	const history = useHistory();
 
 	const fit = (info) => {
-		if (info.length < 350) return info;
+		if (info.length < 300) return info;
 
-		return info.slice(0, 350) + "...";
+		return info.slice(0, 300) + "...";
 	};
 
 	return (

@@ -10,7 +10,7 @@ function AddCardToDeckForm({ onClose, isModal }) {
 	// const userId = user?.id;
 	const { cardId } = useParams();
 	const decks = useSelector((state) =>
-		state.deck?.decks?.sort((a, b) => a.id - b.id)
+		state.deck?.decks?.sort((a, b) => b.id - a.id)
 	);
 
 	const [deckId, setDeckId] = useState(decks[0]?.id);
