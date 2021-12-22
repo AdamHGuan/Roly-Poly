@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
@@ -14,6 +14,7 @@ import "./CardDetail.css";
 
 function CardDetail() {
 	const dispatch = useDispatch();
+	const [display, setDisplay] = useState("both");
 
 	const { cardId } = useParams();
 
@@ -55,8 +56,46 @@ function CardDetail() {
 						</div>
 					</div>
 
-					<div className="card-info-container">{card?.frontContent}</div>
-					<div className="card-info-container">{card?.backContent}</div>
+					<div className="radio-buttons">
+						Both Sides
+						<input
+							value="both"
+							name="display"
+							type="radio"
+							onChange={(e) => setDisplay(e.target.value)}
+						/>
+						Front Side
+						<input
+							value="front"
+							name="display"
+							type="radio"
+							onChange={(e) => setDisplay(e.target.value)}
+						/>
+						Back Side
+						<input
+							value="back"
+							name="display"
+							type="radio"
+							onChange={(e) => setDisplay(e.target.value)}
+						/>
+					</div>
+
+					{display === "both" ? (
+						<>
+							<div className="card-info-container">{card?.frontContent}</div>
+							<div className="card-info-container">{card?.backContent}</div>
+						</>
+					) : null}
+					{display === "front" ? (
+						<>
+							<div className="card-info-container">{card?.frontContent}</div>
+						</>
+					) : null}
+					{display === "back" ? (
+						<>
+							<div className="card-info-container">{card?.backContent}</div>
+						</>
+					) : null}
 				</div>
 			</>
 		);
