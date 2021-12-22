@@ -22,6 +22,8 @@ function CardDetail() {
 		state.card?.cards?.find((ele) => ele.id === +cardId)
 	);
 
+	// const cards = useSelector((state) => state.card?.cards);
+
 	document.body.onkeyup = function (e) {
 		if (e.key === " ") {
 			if (display === "both") {
