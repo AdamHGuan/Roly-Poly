@@ -22,6 +22,39 @@ function CardDetail() {
 		state.card?.cards?.find((ele) => ele.id === +cardId)
 	);
 
+	document.body.onkeyup = function (e) {
+		if (e.key === " ") {
+			if (display === "both") {
+				setDisplay("front");
+			} else if (display === "front") {
+				setDisplay("back");
+			} else {
+				setDisplay("both");
+			}
+		}
+	};
+
+	// document.body.onkeyup = function (e) {
+	// 	if (e.key === "ArrowLeft") {
+	// 		if (display === "both") {
+	// 			setDisplay("front");
+	// 		} else if (display === "front") {
+	// 			setDisplay("back");
+	// 		} else {
+	// 			setDisplay("both");
+	// 		}
+	// 	}
+	// 	if (e.key === "ArrowRight") {
+	// 		if (display === "both") {
+	// 			setDisplay("front");
+	// 		} else if (display === "front") {
+	// 			setDisplay("back");
+	// 		} else {
+	// 			setDisplay("both");
+	// 		}
+	// 	}
+	// };
+
 	useEffect(() => {
 		dispatch(loadCards());
 		dispatch(loadDecks());
@@ -33,6 +66,11 @@ function CardDetail() {
 				<div className="card-detail-container-outer">
 					<div>
 						<h1 className="detail-card-h1">Card Detail</h1>
+					</div>
+					<div>
+						<h3 className="detail-card-h1">
+							Press "Space key" to change display setting!
+						</h3>
 					</div>
 					<div className="detail-card-btn-container">
 						<div>
@@ -56,7 +94,7 @@ function CardDetail() {
 						</div>
 					</div>
 
-					<div className="radio-buttons">
+					{/* <div className="radio-buttons">
 						Both Sides
 						<input
 							value="both"
@@ -78,7 +116,7 @@ function CardDetail() {
 							type="radio"
 							onChange={(e) => setDisplay(e.target.value)}
 						/>
-					</div>
+					</div> */}
 
 					{display === "both" ? (
 						<>
