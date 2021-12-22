@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./FlipCard.css";
 
-function FlipCard({ card }) {
+function FlipCard({ card, CardList }) {
 	const [flip, setFlip] = useState(false);
 	const history = useHistory();
 

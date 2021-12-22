@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 
 import { loadCards } from "../../store/card";
@@ -14,6 +14,8 @@ import "./CardDetail.css";
 
 function CardDetail() {
 	const dispatch = useDispatch();
+	const history = useHistory();
+
 	const [display, setDisplay] = useState("both");
 
 	const { cardId } = useParams();
@@ -22,7 +24,10 @@ function CardDetail() {
 		state.card?.cards?.find((ele) => ele.id === +cardId)
 	);
 
-	// const cards = useSelector((state) => state.card?.cards);
+	const cards = useSelector((state) =>
+		state.card?.cards?.sort((a, b) => a.id - b.id)
+	);
+	let CardIndex = cards?.indexOf(card);
 
 	document.body.onkeyup = function (e) {
 		if (e.key === " ") {
@@ -34,28 +39,25 @@ function CardDetail() {
 				setDisplay("both");
 			}
 		}
+		if (e.key === "ArrowLeft") {
+			if (CardIndex > 0) {
+				let nextCard = cards[CardIndex - 1];
+				history.push(`/cards/${nextCard.id}`);
+			} else {
+				let nextCard = cards[cards.length - 1];
+				history.push(`/cards/${nextCard.id}`);
+			}
+		}
+		if (e.key === "ArrowRight") {
+			if (CardIndex < cards.length - 1) {
+				let nextCard = cards[CardIndex + 1];
+				history.push(`/cards/${nextCard.id}`);
+			} else {
+				let nextCard = cards[0];
+				history.push(`/cards/${nextCard.id}`);
+			}
+		}
 	};
-
-	// document.body.onkeyup = function (e) {
-	// 	if (e.key === "ArrowLeft") {
-	// 		if (display === "both") {
-	// 			setDisplay("front");
-	// 		} else if (display === "front") {
-	// 			setDisplay("back");
-	// 		} else {
-	// 			setDisplay("both");
-	// 		}
-	// 	}
-	// 	if (e.key === "ArrowRight") {
-	// 		if (display === "both") {
-	// 			setDisplay("front");
-	// 		} else if (display === "front") {
-	// 			setDisplay("back");
-	// 		} else {
-	// 			setDisplay("both");
-	// 		}
-	// 	}
-	// };
 
 	useEffect(() => {
 		dispatch(loadCards());
