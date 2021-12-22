@@ -5,6 +5,7 @@ import "./AddCardForm.css";
 
 function AddCardForm({ onClose, isModal }) {
 	const dispatch = useDispatch();
+
 	const { user } = useSelector((state) => state.session);
 	const userId = user?.id;
 
