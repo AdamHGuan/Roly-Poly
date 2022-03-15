@@ -1,11 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { removeDeck, loadDecks } from "../../store/deck";
 import "./DeleteDeckForm.css";
 
 function DeleteDeckForm({ deck, onClose, isModal }) {
 	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.session);
 	const history = useHistory();
 
 	const id = deck?.id;
@@ -13,21 +14,25 @@ function DeleteDeckForm({ deck, onClose, isModal }) {
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
 
-		const data = {
-			id,
-		};
-
-		dispatch(removeDeck(data));
-		dispatch(loadDecks());
-
-		(() => {
-			setTimeout(() => {
-				history.push("/decks");
-			}, 300);
-		})();
-
-		if (isModal) {
+		if (user.username === "Demo") {
 			onClose();
+		} else {
+			const data = {
+				id,
+			};
+
+			dispatch(removeDeck(data));
+			dispatch(loadDecks());
+
+			(() => {
+				setTimeout(() => {
+					history.push("/decks");
+				}, 300);
+			})();
+
+			if (isModal) {
+				onClose();
+			}
 		}
 	};
 

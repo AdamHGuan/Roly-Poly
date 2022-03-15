@@ -1,11 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { removeCard, loadCards } from "../../store/card";
 import "./DeleteCardForm.css";
 
 function DeleteCardForm({ card, onClose, isModal }) {
 	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.session);
 	const history = useHistory();
 
 	const id = card?.id;
@@ -13,21 +14,25 @@ function DeleteCardForm({ card, onClose, isModal }) {
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
 
-		const data = {
-			id,
-		};
-
-		dispatch(removeCard(data));
-		dispatch(loadCards());
-
-		(() => {
-			setTimeout(() => {
-				history.push("/cards");
-			}, 300);
-		})();
-
-		if (isModal) {
+		if (user.username === "Demo") {
 			onClose();
+		} else {
+			const data = {
+				id,
+			};
+
+			dispatch(removeCard(data));
+			dispatch(loadCards());
+
+			(() => {
+				setTimeout(() => {
+					history.push("/cards");
+				}, 300);
+			})();
+
+			if (isModal) {
+				onClose();
+			}
 		}
 	};
 
