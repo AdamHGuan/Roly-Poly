@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { editDeck, loadDecks } from "../../store/deck";
 import "./EditDeckForm.css";
 
 function EditDeckForm({ deck, onClose, isModal }) {
 	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.session);
 
 	const id = deck?.id;
 
@@ -17,22 +18,26 @@ function EditDeckForm({ deck, onClose, isModal }) {
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
 
-		const data = {
-			id,
-			title,
-			// isPublic,
-			deckImgUrl,
-		};
-
-		let res = await dispatch(editDeck(data));
-		await dispatch(loadDecks());
-
-		if (res.errors) {
-			setErrors(res.errors);
-			return;
-		}
-		if (res) {
+		if (user.username == "Demo") {
 			onClose();
+		} else {
+			const data = {
+				id,
+				title,
+				// isPublic,
+				deckImgUrl,
+			};
+
+			let res = await dispatch(editDeck(data));
+			await dispatch(loadDecks());
+
+			if (res.errors) {
+				setErrors(res.errors);
+				return;
+			}
+			if (res) {
+				onClose();
+			}
 		}
 	};
 

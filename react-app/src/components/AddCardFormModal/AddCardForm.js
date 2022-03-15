@@ -18,22 +18,26 @@ function AddCardForm({ onClose, isModal }) {
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
 
-		const data = {
-			userId,
-			frontContent,
-			backContent,
-			// isPublic,
-		};
-
-		let res = await dispatch(addCard(data));
-		await dispatch(loadCards());
-
-		if (res.errors) {
-			setErrors(res.errors);
-			return;
-		}
-		if (res) {
+		if (user.username == "Demo") {
 			onClose();
+		} else {
+			const data = {
+				userId,
+				frontContent,
+				backContent,
+				// isPublic,
+			};
+
+			let res = await dispatch(addCard(data));
+			await dispatch(loadCards());
+
+			if (res.errors) {
+				setErrors(res.errors);
+				return;
+			}
+			if (res) {
+				onClose();
+			}
 		}
 	};
 

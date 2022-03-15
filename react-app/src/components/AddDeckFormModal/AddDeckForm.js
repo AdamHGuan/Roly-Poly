@@ -18,22 +18,26 @@ function AddDeckForm({ onClose, isModal }) {
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
 
-		const data = {
-			userId,
-			title,
-			// isPublic,
-			deckImgUrl,
-		};
-
-		let res = await dispatch(addDeck(data));
-		await dispatch(loadDecks());
-
-		if (res.errors) {
-			setErrors(res.errors);
-			return;
-		}
-		if (res) {
+		if (user.username == "Demo") {
 			onClose();
+		} else {
+			const data = {
+				userId,
+				title,
+				// isPublic,
+				deckImgUrl,
+			};
+
+			let res = await dispatch(addDeck(data));
+			await dispatch(loadDecks());
+
+			if (res.errors) {
+				setErrors(res.errors);
+				return;
+			}
+			if (res) {
+				onClose();
+			}
 		}
 	};
 
