@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { editCard, loadCards } from "../../store/card";
 import "./EditCardForm.css";
 
 function EditCardForm({ card, onClose, isModal }) {
 	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.session);
 
 	const id = card?.id;
 
@@ -17,22 +18,26 @@ function EditCardForm({ card, onClose, isModal }) {
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
 
-		const data = {
-			id,
-			frontContent,
-			backContent,
-			// isPublic,
-		};
-
-		let res = await dispatch(editCard(data));
-		await dispatch(loadCards());
-
-		if (res.errors) {
-			setErrors(res.errors);
-			return;
-		}
-		if (res) {
+		if (user.username == "Demo") {
 			onClose();
+		} else {
+			const data = {
+				id,
+				frontContent,
+				backContent,
+				// isPublic,
+			};
+
+			let res = await dispatch(editCard(data));
+			await dispatch(loadCards());
+
+			if (res.errors) {
+				setErrors(res.errors);
+				return;
+			}
+			if (res) {
+				onClose();
+			}
 		}
 	};
 
