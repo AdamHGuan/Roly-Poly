@@ -18,7 +18,7 @@ function EditCardForm({ card, onClose, isModal }) {
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
 
-		if (user.username == "Demo") {
+		if (user.username === "Demo") {
 			onClose();
 		} else {
 			const data = {
